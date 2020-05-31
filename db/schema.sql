@@ -1,0 +1,62 @@
+CREATE DATABASE rodeo_db;
+
+USE rodeo_db;
+
+CREATE TABLE tiers (
+    id INT AUTO_INCREMENT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    team BOOLEAN NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE events (
+    id INT AUTO_INCREMENT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE organizations (
+    id INT AUTO_INCREMENT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    coop BOOLEAN NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE competitors (
+    id INT AUTO_INCREMENT NOT NULL,
+    first_name VARCHAR(255) NULL,
+    last_name VARCHAR(255) NULL,
+    team_name VARCHAR(255) NULL,
+    group_names VARCHAR(255) NULL,
+    org_id INT NOT NULL,
+    tier_id INT NOT NULL,
+    year_id INT NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE scores (
+    id INT AUTO_INCREMENT NOT NULL,
+    year_id INT NOT NULL,
+    competitor_id INT NOT NULL,
+    event_id INT NOT NULL,
+    score INT NOT NULL,
+    time_minutes INT NOT NULL,
+    time_seconds INT NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE years (
+    id INT AUTO_INCREMENT NOT NULL,
+    value INT NULL,
+    type VARCHAR(255) NOT NULL,
+    tier_id INT NULL,
+    event_id INT NULL,
+    year_id INT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);

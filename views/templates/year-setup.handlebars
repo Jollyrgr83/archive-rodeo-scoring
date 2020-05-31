@@ -1,0 +1,50 @@
+<header class="header-container mx-auto">
+
+    <h1 class="title mx-auto">Rodeo Scoring Year Setup</h1>
+    
+    <img class="logo row mx-auto" src="/assets/images/logo.png" alt="Santee Cooper logo" /> 
+
+</header>
+
+<main class="main-container mx-auto text-center">
+
+    <p class="item-title mx-auto">Competition Year</p>
+    <input id="year-input" type="number" placeholder="Enter Year" value="" />
+    <button class="button" id="year-update-button">Update</button>
+
+</main>
+
+<main id="dynamic"></main>
+
+<main class="main-container mx-auto text-center">
+
+    <p class="item-title mx-auto">Add Competition Tier</p>
+    <select id="tier-select">
+        {{#each tiers}}
+            {{> year/year-tier-block}}
+        {{/each}}
+        <option>Add New</option>
+    </select>
+
+    <button class="button" id="year-add-tier-button">Add Tier</button>
+
+    <div id="add-tier-dynamic"></div>
+
+</main>
+
+<section class="main-container mx-auto text-center">
+
+    <button class="button" id="year-save-button">Save Changes</button>
+
+</section>
+
+<nav class="main-container mx-auto text-center">
+    
+    <button class="button" id="home">Home</button>
+    <button class="button" id="year">Year Setup</button>
+    <button class="button" id="comp">Competitor Entry</button>
+    <button class="button" id="score">Score Entry</button>
+    <button class="button" id="rep">Reports</button>
+    <button class="button" id="help">Instructions</button>
+
+</nav>

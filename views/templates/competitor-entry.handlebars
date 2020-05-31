@@ -1,0 +1,65 @@
+<header class="header-container mx-auto">
+
+    <h1 class="title mx-auto">Competitor Entry</h1>
+    
+    <img class="logo row mx-auto" src="/assets/images/logo.png" alt="Santee Cooper logo" /> 
+
+</header>
+
+<main class="main-container mx-auto text-center">
+
+    <p class="item-title mx-auto">Competitor Number</p>
+    <input id="compNumber" type="text" />
+
+    <p class="item-title mx-auto">First Name</p>
+    <input id="firstName" type="text" />
+
+    <p class="item-title mx-auto">Last Name</p>
+    <input id="lastName" type="text" />
+
+    <p class="item-title mx-auto">Organization Name</p>
+    <input id="orgName" type="text" />
+
+    <p class="item-title mx-auto">Team Name</p>
+    <input id="teamName" type="text" />
+
+    <p class="item-title mx-auto">Competitor Type</p>
+    <select id="compType">
+        {{#each tiers}}
+            {{> year/year-tier-block}}
+        {{/each}}
+    </select>
+
+    <p class="item-title mx-auto">Competition Year</p>
+    <input id="compYear" type="text"  />
+
+</main>
+
+<section class="main-container mx-auto text-center">
+
+    <div class="row mx-auto text-center">
+
+        <button class="nav-button mx-auto" id="compPrev"><</button>
+        <button class="nav-button mx-auto" id="compAdd">+</button>
+        <button class="nav-button mx-auto" id="compNext">></button>
+    
+    </div>
+
+</section>
+
+<section class="main-container mx-auto text-center">
+
+    <button class="button" id="compSaveButton">Save Changes</button>
+
+</section>
+
+<nav class="main-container mx-auto text-center">
+    
+    <button class="button" id="home">Home</button>
+    <button class="button" id="year">Year Setup</button>
+    <button class="button" id="comp">Competitor Entry</button>
+    <button class="button" id="score">Score Entry</button>
+    <button class="button" id="rep">Reports</button>
+    <button class="button" id="help">Instructions</button>
+
+</nav>

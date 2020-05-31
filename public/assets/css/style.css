@@ -1,0 +1,157 @@
+.background {
+    background-color: rgba(39, 89, 55, 45%);
+}
+.header-container {
+    margin: 2% 0 0 0;
+}
+.title {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    max-width: 90%;
+    width: 400px;
+    text-align: center;
+    border: solid 5px rgb(39, 89, 55);
+    background-color: rgb(39, 89, 55);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px black;
+}
+.mini-title {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    max-width: 90%;
+    width: 400px;
+    text-align: center;
+    border: solid 5px rgb(39, 89, 55);
+    background-color: rgb(39, 89, 55);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px black;
+}
+.main-container {
+    border-radius: 15px;
+    border: solid 2.5px rgb(39, 89, 55);
+    max-width: 90%;
+    width: 400px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 2px 2px 5px black;
+}
+.button {
+    border-radius: 40px;
+    background-color: rgb(39, 89, 55);
+    color: white;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    border: solid 2px rgb(39, 89, 55);
+    font-size: 22px;
+    width: 90%;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px black;
+}
+.button:hover, .button:focus {
+    background-color: white;
+    color: rgb(39, 89, 55);
+    outline: none;
+    border: solid 2px rgb(39, 89, 55);
+}
+.nav-button {
+    border-radius: 50%;
+    background-color: rgb(39, 89, 55);
+    color: white;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    border: solid 2px rgb(39, 89, 55);
+    font-size: 22px;
+    width: 50px;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px black;
+}
+.nav-button:hover, .nav-button:focus {
+    background-color: white;
+    color: rgb(39, 89, 55);
+    outline: none;
+    border: solid 2px rgb(39, 89, 55);
+}
+input:enabled, input:focus, input:active {
+    border-radius: 40px;
+    background-color: white;
+    color: rgb(39, 89, 55);
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    border: solid 2px rgb(39, 89, 55);
+    font-size: 22px;
+    width: 90%;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px black;
+    text-align: center;
+    outline: none;
+}
+select:enabled, select:focus, select:active {
+    border-radius: 40px;
+    background-color: white;
+    color: rgb(39, 89, 55);
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    border: solid 2px rgb(39, 89, 55);
+    font-size: 22px;
+    width: 90%;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px black;
+    text-align: center;
+    outline: none;
+}
+.mini-title {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    width: 90%;
+    text-align: center;
+    border: solid 5px rgb(39, 89, 55);
+    background-color: rgb(39, 89, 55);
+    color: white;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black;
+}
+.item-title {
+    color: rgb(39, 89, 55);
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    width: 90%;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+}
+.score-title {
+    color: rgb(39, 89, 55);
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    width: 30%;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+}
+.score-input:enabled, .score-input:focus, .score-input:active {
+    border-radius: 40px;
+    background-color: white;
+    color: rgb(39, 89, 55);
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    border: solid 2px rgb(39, 89, 55);
+    font-size: 22px;
+    width: 25%;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px black;
+    text-align: center;
+    outline: none;
+}
