@@ -76,6 +76,25 @@
     outline: none;
     border: solid 2px rgb(39, 89, 55);
 }
+.view-button {
+    border-radius: 40px;
+    background-color: rgb(39, 89, 55);
+    color: white;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    border: solid 2px rgb(39, 89, 55);
+    font-size: 22px;
+    width: 40%;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px black;
+}
+.view-button:hover, .view-button:focus {
+    background-color: white;
+    color: rgb(39, 89, 55);
+    outline: none;
+    border: solid 2px rgb(39, 89, 55);
+}
 input:enabled, input:focus, input:active {
     border-radius: 40px;
     background-color: white;
@@ -154,4 +173,23 @@ select:enabled, select:focus, select:active {
     box-shadow: 2px 2px 5px black;
     text-align: center;
     outline: none;
+}
+.warning {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    max-width: 90%;
+    width: 400px;
+    text-align: center;
+    border: solid 5px red;
+    background-color: red;
+    color: white;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px black;
+}
+.hide {
+    display: none;
+}
+.show {
+    display: block;
 }

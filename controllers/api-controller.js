@@ -9,11 +9,42 @@ router.get("/api/tier", (req, res) => {
     });
 });
 
-router.get("/api/view-Tiers", (req, res) => {
-    console.log("/api/view-Tiers");
-    model.allTiers((data) => {
+router.get("/api/view/:tableName", (req, res) => {
+    console.log("tableName", req.params.tableName);
+    model.allView(req.params.tableName, (data) => {
         console.log("data", data);
-        res.json({data: data});
+        if (data[0].value) {
+            let arr = [];
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].type === "year") {
+                    arr.push({
+                        id: data[i].id,
+                        name: data[i].value
+                    });
+                }
+            }
+            res.json({data: arr});
+        }
+        else {
+            res.json({data: data});
+        }
+    });
+});
+
+router.post("/api/view/", (req, res) => {
+    console.log("view POST body: ", req.body);
+    model.addView(req.body, (data) => {
+        console.log("data", data);
+        console.log("data.insertId", data.insertId);
+        res.json(data);
+    });
+});
+
+router.delete("/api/view/", (req, res) => {
+    console.log("view DELETE body: ", req.body);
+    model.deleteView(req.body, (data) => {
+        console.log("data", data);
+        res.json(data);
     });
 });
 
