@@ -13,10 +13,6 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// var routes = require("./controllers");
-
-// app.use(routes);
-
 var apiRoutes = require("./controllers/api-controller.js");
 var htmlRoutes = require("./controllers/html-controller.js");
 

@@ -6,7 +6,7 @@ $(() => {
             "home": "/",
             "view": "/view",
             "year": "/year",
-            "competitors": "/competitors",
+            "comp": "/competitors",
             "score": "/score",
             "reports": "/reports",
             "help": "/help"
@@ -188,83 +188,9 @@ $(() => {
     }
 
 });
-//     $(document).on("click", ".button", (event) => {
-//         var ID = $(event.target).attr("id");
-//         console.log("ID: ", ID);
-//         var routes = {
-//             "home": "/",
-//             "comp": "/competitor-entry",
-//             "year": "/year-setup",
-//             "score": "/score-entry",
-//             "rep": "/reports",
-//             "help": "/instructions"
-//         };
-//         if (routes[ID]) {
-//             window.location.href = routes[ID];
-//         }
-//         else if (ID === "year-update-button") {
-//             $.ajax("/api/year-setup", {
-//                 type: "POST",
-//                 data: {
-//                     year: parseInt($("#year-input").val().trim())
-//                 }
-//               }).then((data) => {
-//                 renderYear(data);
-//               });
-//         }
-//         else if (ID === "year-save-button") {
-//             // grab input values, put in object, pass to PUT request
-            
-//             $.ajax("/api/year-setup", {
-//                 type: "POST",
-//                 data: {}
-//             }).then((data) => {
-//                 renderYear(data);
-//             });
-//         }
-//         else if (ID === "year-add-tier-button") {
-//             const newTier = $("#tier-select").val();
-//             console.log("newTier 38", newTier);
-//             console.log("year-input", $("#year-input").val().trim());
-//             if ($("#year-input").val().trim() === "") {
-//                 if (newTier === "Add New") {
-//                     renderAddTier();
-//                 }
-//             }
-//             else {
-//                 $.ajax("/api/year-setup", {
-//                     type: "POST",
-//                     data: {
-//                         year: parseInt($("#year-input").val().trim())
-//                     }
-//                 }).then((data) => {
-//                     renderYear(data);
-//                     console.log("newTier", newTier);
-//                     if (newTier === "Add New") {
-//                         renderAddTier();
-//                     }
-//                 });
-//             }
-//         }
-//         else if (ID === "new-tier-button") {
-//             const newTierInput = $("#new-tier-input").val().trim();
-//             if (newTierInput === "") {
-//                 return;
-//             }
-//             else {
-//                 $.ajax("/api/year-setup/", {
-//                     type: "POST",
-//                     data: {
-//                         year: parseInt($("#year-input").val().trim()),
-//                         tier: newTierInput
-//                     }
-//                 }).then((data) => {
-//                     renderYear(data);
-//                     renderTierOptions();
-//                 });
-//             }
-//         }
-//     });
+
+
+
 
 //     $(".nav-button").on("click", (event) => {
 //         var ID = $(event.target).attr("id");
