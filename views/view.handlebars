@@ -1,49 +1,54 @@
-<header class="header-container mx-auto">
-    
-    <h1 class="title mx-auto">Annual Lineworkers Rodeo Scoring</h1>
-    
-    <img class="logo row mx-auto" src="/assets/images/logo.png" alt="Santee Cooper logo" /> 
+<head>
+    <title>Annual Lineworkers Rodeo Scoring | {{title}}</title>
+    {{> main/head-block}}
+    <!-- view page js script -->
+    <script type="text/javascript" src="/assets/js/view.js"></script>
+</head>
+<body class="background">
 
-</header>
+    {{> main/title-block}}
 
-<main class="main-container mx-auto text-center">
+    <main>
 
-    <select id="view-menu">
-        <option>Tiers</option>
-        <option>Events</option>
-        <option>Organizations</option>
-        <option>Years</option>
-    </select>
+        <section class="main-container mx-auto text-center">
 
-    <button class="button" id="view-menu-button">View Items</button>
+            <p class="mini-title mx-auto">View and Edit Items</p>
 
-</main>
+            <p class="item-title mx-auto">Select a Category to View/Edit</p>
 
-<section class="main-container mx-auto text-center hide" id="view-container"></section>
+            <select id="view-menu">
+                <option>Tiers</option>
+                <option>Events</option>
+                <option>Organizations</option>
+                <option>Years</option>
+            </select>
 
-<section class="main-container mx-auto text-center">
+            <button class="button" id="view-menu-button">Show Items</button>
 
-    <select id="add-menu">
-        <option>Tiers</option>
-        <option>Events</option>
-        <option>Organizations</option>
-        <option>Years</option>
-    </select>
+            <div class="mx-auto text-center" id="view-container"></div>
 
-    <button class="button" id="add-menu-button">Add Item</button>
+        </section>
 
-    <div id="add-container"></div>
 
-</section>
+        <section class="main-container mx-auto text-center">
 
-<nav class="main-container mx-auto text-center">
+            <p class="mini-title mx-auto">Add Items</p>
 
-    <button class="button" id="home">Home</button>
-    <button class="button" id="view">View/Edit</button>
-    <button class="button" id="year">Year Setup</button>
-    <button class="button" id="competitors">Competitors</button>
-    <button class="button" id="scores">Scores</button>
-    <button class="button" id="reports">Reports</button>
-    <button class="button" id="help">Help</button>
+            <p class="item-title mx-auto">Select an Item to Add</p>
 
-</nav>
+            <select id="add-menu">
+                <option>Tiers</option>
+                <option>Events</option>
+                <option>Organizations</option>
+                <option>Years</option>
+            </select>
+
+            <div id="add-container"></div>
+
+        </section>
+        
+    </main>
+
+    {{> main/nav-menu-block}}
+
+</body>

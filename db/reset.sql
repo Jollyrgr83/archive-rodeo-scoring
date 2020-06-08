@@ -1,5 +1,72 @@
 USE rodeo_db;
 
+DROP TABLE tiers;
+DROP TABLE events;
+DROP TABLE organizations;
+DROP TABLE competitors;
+DROP TABLE years;
+DROP TABLE scores;
+
+CREATE TABLE tiers (
+    id INT AUTO_INCREMENT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    team BOOLEAN NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE events (
+    id INT AUTO_INCREMENT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE organizations (
+    id INT AUTO_INCREMENT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    coop BOOLEAN NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE competitors (
+    id INT AUTO_INCREMENT NOT NULL,
+    first_name VARCHAR(255) NULL,
+    last_name VARCHAR(255) NULL,
+    team_name VARCHAR(255) NULL,
+    group_names VARCHAR(255) NULL,
+    org_id INT NOT NULL,
+    tier_id INT NOT NULL,
+    year_id INT NOT NULL,
+    comp_number VARCHAR(255) NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE scores (
+    id INT AUTO_INCREMENT NOT NULL,
+    year_id INT NOT NULL,
+    competitor_id INT NOT NULL,
+    event_id INT NOT NULL,
+    score INT NULL,
+    time_minutes INT NULL,
+    time_seconds DECIMAL(10, 2) NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE years (
+    id INT AUTO_INCREMENT NOT NULL,
+    value INT NULL,
+    type VARCHAR(255) NOT NULL,
+    tier_id INT NULL,
+    event_id INT NULL,
+    year_id INT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
 INSERT INTO tiers (id, name, team) VALUES 
 (1, "Apprentice", false),
 (2, "Journeyman", true);
@@ -87,38 +154,38 @@ INSERT INTO years (id, value, type, tier_id, event_id, year_id) VALUES
 
 INSERT INTO competitors (id, first_name, last_name, team_name, group_names, org_id, tier_id, year_id, comp_number) VALUES
 -- 2017 Apprentice Competitors
-(1, "Pope", "Logan", null, null, 6, 1, 1, "103"),
-(2, "Elston", "Lucas", null, null, 6, 1, 1, "104"),
-(3, "Hopper", "Zack", null, null, 6, 1, 1, "105"),
-(4, "Traenkner", "Caleb", null, null, 6, 1, 1, "106"),
-(5, "Cunupp", "Bruce", null, null, 6, 1, 1, "107"),
-(6, "Childers", "Zack", null, null, 6, 1, 1, "108"),
-(7, "Garrett", "Jeremy", null, null, 1, 1, 1, "109"),
-(8, "Roper", "DJ", null, null, 5, 1, 1, "110"),
-(9, "Sims", "Michael", null, null, 5, 1, 1, "111"),
-(10, "Steward", "Jake", null, null, 5, 1, 1, "112"),
-(11, "Thomas", "Corey", null, null, 2, 1, 1, "113"),
-(12, "Owens", "Henry", null, null, 2, 1, 1, "114"),
-(13, "Boatwright, Jr", "Wyman", null, null, 3, 1, 1, "115"),
-(14, "Cox", "Chase", null, null, 3, 1, 1, "116"),
-(15, "Avant", "Ethan", null, null, 3, 1, 1, "117"),
-(16, "Hughes", "Aaron", null, null, 1, 1, 1, "118"),
-(17, "Rostad", "Jacob", null, null, 1, 1, 1, "119"),
-(18, "Shillinglaw", "Joseph", null, null, 1, 1, 1, "120"),
-(19, "Boatwright", "Drew", null, null, 1, 1, 1, "121"),
-(20, "Brown", "Will", null, null, 1, 1, 1, "122"),
-(21, "Sawyer", "Josh", null, null, 1, 1, 1, "123"),
-(22, "Graves", "Reggie", null, null, 1, 1, 1, "124"),
-(23, "Ham", "Josh", null, null, 1, 1, 1, "125"),
-(24, "Windham", "JT", null, null, 1, 1, 1, "126"),
-(25, "Powell", "Michael", null, null, 1, 1, 1, "127"),
-(26, "Mishoe", "Wilson", null, null, 1, 1, 1, "128"),
-(27, "Melton", "Hunter", null, null, 1, 1, 1, "129"),
-(28, "Anderson", "Jamie", null, null, 1, 1, 1, "130"),
-(29, "Strong", "Peter", null, null, 4, 1, 1, "131"),
-(30, "Bello", "Jose", null, null, 4, 1, 1, "132"),
-(31, "Mcalhaney", "Randall", null, null, 4, 1, 1, "133"),
-(32, "Martin", "Matthew", null, null, 1, 1, 1, "134"),
+(1, "Logan", "Pope", null, null, 6, 1, 1, "103"),
+(2, "Lucas", "Elston", null, null, 6, 1, 1, "104"),
+(3, "Zack", "Hopper", null, null, 6, 1, 1, "105"),
+(4, "Caleb", "Traenkner", null, null, 6, 1, 1, "106"),
+(5, "Bruce", "Cunupp", null, null, 6, 1, 1, "107"),
+(6, "Zack", "Childers", null, null, 6, 1, 1, "108"),
+(7, "Jeremy", "Garrett", null, null, 1, 1, 1, "109"),
+(8, "DJ", "Roper", null, null, 5, 1, 1, "110"),
+(9, "Michael", "Sims", null, null, 5, 1, 1, "111"),
+(10, "Jake", "Steward", null, null, 5, 1, 1, "112"),
+(11, "Corey", "Thomas", null, null, 2, 1, 1, "113"),
+(12, "Henry", "Owens", null, null, 2, 1, 1, "114"),
+(13, "Wyman", "Boatwright, Jr", null, null, 3, 1, 1, "115"),
+(14, "Chase", "Cox", null, null, 3, 1, 1, "116"),
+(15, "Ethan", "Avant", null, null, 3, 1, 1, "117"),
+(16, "Aaron", "Hughes", null, null, 1, 1, 1, "118"),
+(17, "Jacob", "Rostad", null, null, 1, 1, 1, "119"),
+(18, "Joseph", "Shillinglaw", null, null, 1, 1, 1, "120"),
+(19, "Drew", "Boatwright", null, null, 1, 1, 1, "121"),
+(20, "Will", "Brown", null, null, 1, 1, 1, "122"),
+(21, "Josh", "Sawyer", null, null, 1, 1, 1, "123"),
+(22, "Reggie", "Graves", null, null, 1, 1, 1, "124"),
+(23, "Josh", "Ham", null, null, 1, 1, 1, "125"),
+(24, "JT", "Windham", null, null, 1, 1, 1, "126"),
+(25, "Michael", "Powell", null, null, 1, 1, 1, "127"),
+(26, "Wilson", "Mishoe", null, null, 1, 1, 1, "128"),
+(27, "Hunter", "Melton", null, null, 1, 1, 1, "129"),
+(28, "Jamie", "Anderson", null, null, 1, 1, 1, "130"),
+(29, "Peter", "Strong", null, null, 4, 1, 1, "131"),
+(30, "Jose", "Bello", null, null, 4, 1, 1, "132"),
+(31, "Randall", "Mcalhaney", null, null, 4, 1, 1, "133"),
+(32, "Matthew", "Martin", null, null, 1, 1, 1, "134"),
 -- 2017 Journeyman Competitors
 (33, null, null, "SC 1", "Tommy Reece - Nick Brown - Coby Martin - Bryant Geathers", 1, 2, 1, "201"),
 (34, null, null, "Blue Ridge 1", "Chad Davidson - Jay Bagwell - Clay Crawford - Anson Perry", 5, 2, 1, "202"),
@@ -214,7 +281,7 @@ INSERT INTO competitors (id, first_name, last_name, team_name, group_names, org_
 (121, "Jeremy", "Garrett", null, null, 1, 1, 3, "119"),
 -- 2019 Journeyman Competitors
 (122, null, null, "SC 1", "Tommy Reece - Nick Brown - Brandon Pugh - Christian Osha", 1, 2, 3, "201"),
-(123, null, null, "SC 2", "Sport Rabon-  Matthew Martin - Mack Johnson", 1, 2, 3, "202"),
+(123, null, null, "SC 2", "Sport Rabon -  Matthew Martin - Mack Johnson", 1, 2, 3, "202"),
 (124, null, null, "SC 3", "Jason Sanders - Jacob Black - Brad Yon", 1, 2, 3, "203"),
 (125, null, null, "SC 4", "Josh Craven - Luke Crosby - Rodian Henry", 1, 2, 3, "204"),
 (126, null, null, "SC 5", "William Brown - Evan Glen - Leon Gadsden - Kyle McKnight", 1, 2, 3, "205"),

@@ -1,50 +1,51 @@
-<header class="header-container mx-auto">
+<head>
+    <title>Annual Lineworkers Rodeo Scoring | {{#each arrays}} {{title}} {{/each}}</title>
+    {{> main/head-block}}
+    <!-- view page js script -->
+    <script type="text/javascript" src="/assets/js/year.js"></script>
+</head>
+<body class="background">
 
-    <h1 class="title mx-auto">Rodeo Scoring Year Setup</h1>
-    
-    <img class="logo row mx-auto" src="/assets/images/logo.png" alt="Santee Cooper logo" /> 
+    {{#each arrays}}
+        {{> main/title-block}}
+    {{/each}}
 
-</header>
+    <main>
 
-<main class="main-container mx-auto text-center">
+        <section class="main-container mx-auto text-center">
 
-    <p class="item-title mx-auto">Competition Year</p>
-    <input id="year-input" type="number" placeholder="Enter Year" value="" />
-    <button class="button" id="year-update-button">Update</button>
+            <p class="item-title mx-auto">Select Competition Year</p>
+            
+            <select id="year-select">
+                {{#each arrays}}
+                    {{#each years}}
+                        {{> year/year-block}}
+                    {{/each}}
+                {{/each}}
+            </select>
 
-</main>
+        </section>
 
-<main id="dynamic"></main>
+        <section id="dynamic"></section>
 
-<main class="main-container mx-auto text-center">
+        <section class="main-container mx-auto text-center">
 
-    <p class="item-title mx-auto">Add Competition Tier</p>
-    <select id="tier-select">
-        {{#each tiers}}
-            {{> year/year-tier-block}}
-        {{/each}}
-        <option>Add New</option>
-    </select>
+            <p class="item-title mx-auto">Select Competition Tier to Add</p>
+            
+            <select id="tier-select">
+                {{#each arrays}}
+                    {{#each tiers}}
+                        {{> year/tier-block}}
+                    {{/each}}
+                {{/each}}
+            </select>
 
-    <button class="button" id="year-add-tier-button">Add Tier</button>
+            <button class="button" id="year-add-tier-button">Add Tier</button>
 
-    <div id="add-tier-dynamic"></div>
+        </section>
 
-</main>
+    </main>
 
-<section class="main-container mx-auto text-center">
+    {{> main/nav-menu-block}}
 
-    <button class="button" id="year-save-button">Save Changes</button>
-
-</section>
-
-<nav class="main-container mx-auto text-center">
-    
-    <button class="button" id="home">Home</button>
-    <button class="button" id="year">Year Setup</button>
-    <button class="button" id="comp">Competitor Entry</button>
-    <button class="button" id="score">Score Entry</button>
-    <button class="button" id="rep">Reports</button>
-    <button class="button" id="help">Instructions</button>
-
-</nav>
+</body>

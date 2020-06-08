@@ -57,25 +57,6 @@
     outline: none;
     border: solid 2px rgb(39, 89, 55);
 }
-.nav-button {
-    border-radius: 50%;
-    background-color: rgb(39, 89, 55);
-    color: white;
-    font-family: "Lato", sans-serif;
-    font-weight: 300;
-    border: solid 2px rgb(39, 89, 55);
-    font-size: 22px;
-    width: 50px;
-    margin: 5px;
-    padding: 5px;
-    box-shadow: 2px 2px 5px black;
-}
-.nav-button:hover, .nav-button:focus {
-    background-color: white;
-    color: rgb(39, 89, 55);
-    outline: none;
-    border: solid 2px rgb(39, 89, 55);
-}
 .view-button {
     border-radius: 40px;
     background-color: rgb(39, 89, 55);
@@ -95,6 +76,24 @@
     outline: none;
     border: solid 2px rgb(39, 89, 55);
 }
+.year-button {
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    border: solid 2px red;
+    font-size: 22px;
+    width: 45px;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px black;
+}
+.year-button:hover, .year-button:focus {
+    background-color: white;
+    color: red;
+    outline: none;
+}
 input:enabled, input:focus, input:active {
     border-radius: 40px;
     background-color: white;
@@ -110,8 +109,23 @@ input:enabled, input:focus, input:active {
     text-align: center;
     outline: none;
 }
-select:enabled, select:focus, select:active {
+.year-input:enabled, .year-input:focus, .year-input:active {
     border-radius: 40px;
+    background-color: white;
+    color: rgb(39, 89, 55);
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    border: solid 2px rgb(39, 89, 55);
+    font-size: 22px;
+    width: 75%;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px black;
+    text-align: center;
+    outline: none;
+}
+select:enabled, select:focus, select:active {
+    border-radius: 10px;
     background-color: white;
     color: rgb(39, 89, 55);
     font-family: "Lato", sans-serif;
@@ -186,10 +200,15 @@ select:enabled, select:focus, select:active {
     color: white;
     border-radius: 15px;
     box-shadow: 2px 2px 5px black;
+    margin-top: 10px;
 }
-.hide {
-    display: none;
-}
-.show {
-    display: block;
+.result-container {
+    border-radius: 15px;
+    border: solid 2.5px rgb(39, 89, 55);
+    max-width: 90%;
+    width: 400px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 2px 2px 5px black;
+    background-color: lightgray;
 }
