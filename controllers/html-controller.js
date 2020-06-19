@@ -1,6 +1,5 @@
 var express = require("express");
 var router = express.Router();
-
 var model = require("../models/model.js");
 
 router.get("/", (req, res) => {
@@ -13,9 +12,9 @@ router.get("/view", (req, res) => {
 
 router.get("/year", (req, res) => {
     let hbsYearObj = {arrays: [{title: "Year Setup", years: [], tiers: []}]};
-    model.getAllFromOneTable("years", (data) => {
+    model.getAllFromOneTable("years", data => {
         hbsYearObj.arrays[0].years = [...data];
-        model.getAllFromOneTable("tiers", (data) => {
+        model.getAllFromOneTable("tiers", data => {
             hbsYearObj.arrays[0].tiers = [...data];
             res.render("year", hbsYearObj);
         });
@@ -24,9 +23,9 @@ router.get("/year", (req, res) => {
 
 router.get("/competitors", (req, res) => {
     let hbsYearObj = {arrays: [{title: "Add/Edit Competitors", years: [], tiers: []}]};
-    model.getAllFromOneTable("years", (data) => {
+    model.getAllFromOneTable("years", data => {
         hbsYearObj.arrays[0].years = [...data];
-        model.getAllFromOneTable("tiers", (data) => {
+        model.getAllFromOneTable("tiers", data => {
             hbsYearObj.arrays[0].tiers = [...data];
             res.render("competitors", hbsYearObj);
         });

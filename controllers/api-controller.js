@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var model = require("../models/model.js");
+var fs = require("fs");
 
 // sends data to view.js to build the view and edit items section
 router.get("/api/view/menu/:tableName", (req, res) => {
@@ -153,6 +154,10 @@ router.get("/api/report/all/:year_id", (req, res) => {
         });
     });
 });
+// sends pdf file to browser
+router.get("/api/retrieve-report", (req, res) => {
+  res.download("./output/report.pdf");
+});
 // receives data from view.js and adds new category (tier, event, organization, year)
 router.post("/api/view/", (req, res) => {
     model.addCategory(req.body, data => res.json(data));
@@ -168,6 +173,29 @@ router.post("/api/year/tier/", (req, res) => {
 // receives data from comp.js and adds new competitor
 router.post("/api/comp/", (req, res) => {
     model.addCompetitor(req.body, data => res.json(data));
+});
+// generates pdf report on updating score selections
+router.post("/api/generate-report/", (req, res) => {
+  var data = req.body;
+  console.log("data", data);
+  var fonts = {
+    Roboto: {
+      normal: "./public/assets/fonts/Lato-Light.ttf",
+      bold: "./public/assets/fonts/Lato-Bold.ttf",
+      italics: "./public/assets/fonts/Lato-Italic.ttf",
+      bolditalics: "./public/assets/fonts/Lato-BoldItalic.ttf"
+    }
+  };
+  var PdfPrinter = require('pdfmake');
+  var printer = new PdfPrinter(fonts);
+  var fs = require('fs');
+  // add functionality here to generate report with data
+  var docDefinition = { content: data.data };
+  var options = {};
+  var pdfDoc = printer.createPdfKitDocument(docDefinition, options);
+  pdfDoc.pipe(fs.createWriteStream("./output/report.pdf"))
+  pdfDoc.end()
+  res.json({ status: 200 });
 });
 // receives data from view.js and updates category record (tier, entry, organization, year)
 router.put("/api/view/", (req, res) => {
