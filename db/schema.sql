@@ -34,7 +34,7 @@ CREATE TABLE competitors (
     org_id INT NOT NULL,
     tier_id INT NOT NULL,
     year_id INT NOT NULL,
-    comp_number VARCHAR(255 NOT NULL),
+    comp_number VARCHAR(255) NOT NULL,
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id)
 );
