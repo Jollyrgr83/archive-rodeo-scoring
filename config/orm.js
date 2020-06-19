@@ -21,10 +21,20 @@ const orm = {
         });
     },
     selectOneCompetitorByID: (competitor_id, cb) => {
-        var queryString = `SELECT competitors.id, competitors.first_name, competitors.last_name, competitors.team_name, competitors.group_names, competitors.comp_number, tiers.name, tiers.team FROM competitors INNER JOIN tiers ON (competitors.tier_id = tiers.id) WHERE competitors.id = ${competitor_id};`;
+        const retObj = [];
+        var queryString = `SELECT competitors.id, competitors.first_name, competitors.last_name, competitors.team_name, competitors.group_names, competitors.comp_number, competitors.org_id, tiers.name, tiers.team FROM competitors INNER JOIN tiers ON (competitors.tier_id = tiers.id) WHERE competitors.id = ${competitor_id};`;
         connection.query(queryString, (err, result) => {
             if (err) throw err;
-            cb(result);
+            retObj.push(result[0]);
+            retObj[0].organizations = [];
+            var queryString = `SELECT id, name FROM organizations;`;
+            connection.query(queryString, (err, result) => {
+              if (err) throw err;
+              retObj[0].organizations = result.map(x => {
+                return { id: x.id, name: x.name, active: x.id === retObj[0].org_id ? true : false }; 
+              });
+              cb(retObj);
+            });
         });
     },
     selectTeamBooleanByTierID: (tier_id, cb) => {
@@ -237,7 +247,7 @@ const orm = {
         });
     },
     updateOneCompetitor: (body, cb) => {
-        var queryString = `UPDATE competitors SET comp_number = '${body.comp_number}', first_name = '${body.first_name}', last_name = '${body.last_name}', team_name = '${body.team_name}', group_names = '${body.group_names}' WHERE id = ${body.id};`;
+        var queryString = `UPDATE competitors SET comp_number = '${body.comp_number}', first_name = '${body.first_name}', last_name = '${body.last_name}', team_name = '${body.team_name}', group_names = '${body.group_names}', org_id=${body.org_id} WHERE id = ${body.id};`;
         connection.query(queryString, (err, result) => {
             if (err) throw err;
             cb(result);
