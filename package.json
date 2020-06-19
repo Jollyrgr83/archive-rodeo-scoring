@@ -1,0 +1,29 @@
+{
+  "name": "Santee Cooper Rodeo Scoring",
+  "version": "1.0.0",
+  "description": "Rodeo Scoring Database",
+  "main": "server.js",
+  "scripts": {
+    "test": "none",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jollyrgr83/rodeo.git"
+  },
+  "keywords": [
+    "rodeo"
+  ],
+  "author": "Jason Mangin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jollyrgr83/rodeo/issues"
+  },
+  "homepage": "https://github.com/Jollyrgr83/rodeo#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "mysql": "^2.18.1",
+    "pdfmake": "^0.1.65"
+  }
+}
