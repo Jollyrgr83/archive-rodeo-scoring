@@ -21,12 +21,12 @@ $(() => {
         }
     });
 
-    $(document).on("click", ".view-button", (event) => {
+    $(document).on("click", ".square-button", (event) => {
         var ID = parseInt($(event.target).attr("id"));
         var itemValue = $(`#input-${ID}`).val().trim();
         if (itemValue === "") {
             return;
-        } else if ($(event.target).attr("class").indexOf("delete") != -1) {
+        } else if ($(event.target).attr("class").indexOf("del-btn") != -1) {
             $.ajax("/api/view/", {
                 type: "DELETE",
                 data: {
@@ -34,7 +34,7 @@ $(() => {
                     id: ID
                 }
             }).then(res => getView($("#view-menu").val()));
-        } else if ($(event.target).attr("class").indexOf("update") != -1) {
+        } else {
             $.ajax("/api/view/", {
                 type: "PUT",
                 data: {titleName: $("#view-menu").val(), id: ID, itemValue: itemValue}
@@ -75,20 +75,17 @@ $(() => {
         $("#view-container").append(pTitleEl);
         for (let i = 0; i < dataObj.data.length; i++) {
             var itemInputEl = $("<input>");
+            itemInputEl.attr("class", "view-input");
             itemInputEl.attr("id", `input-${dataObj.data[i].id}`);
             itemInputEl.attr("type", "text");
             itemInputEl.val(dataObj.data[i].name);
-            var updateButtonEl = $("<button>");
-            updateButtonEl.attr("id", `${dataObj.data[i].id}`);
-            updateButtonEl.attr("class", "view-button update mx-auto");
-            updateButtonEl.text("Update");
-            var deleteButtonEl = $("<button>");
-            deleteButtonEl.attr("id", `${dataObj.data[i].id}`);
-            deleteButtonEl.attr("class", "view-button delete mx-auto");
-            deleteButtonEl.text("Delete");
+            var updateButtonEl = svgEl("update", "square-button mx-auto");
+            updateButtonEl.setAttribute("id", `${dataObj.data[i].id}`);
+            var deleteButtonEl = svgEl("delete", "square-button del-btn mx-auto");
+            deleteButtonEl.setAttribute("id", `${dataObj.data[i].id}`);
             var rowEl = $("<div>");
             rowEl.attr("class", "row mx-auto text-center");
-            $("#view-container").append(itemInputEl);
+            rowEl.append(itemInputEl);
             rowEl.append(updateButtonEl);
             rowEl.append(deleteButtonEl);
             $("#view-container").append(rowEl);
@@ -181,5 +178,43 @@ $(() => {
                 $("#add-container").append(textEl);
             });
         }
+    }
+
+    function svgEl(btnType, btnClass) {
+      const obj = {
+        xmlns: "http://www.w3.org/2000/svg",
+        viewBox: "0 0 16 16",
+        fill: "currentColor",
+        fillRule: "evenodd",
+        update: {
+          class: "bi bi-arrow-clockwise",
+          width: "2em",
+          height: "2em",
+          dOne: "M3.17 6.706a5 5 0 0 1 7.103-3.16.5.5 0 1 0 .454-.892A6 6 0 1 0 13.455 5.5a.5.5 0 0 0-.91.417 5 5 0 1 1-9.375.789z",
+          dTwo: "M8.147.146a.5.5 0 0 1 .707 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 1 1-.707-.708L10.293 3 8.147.854a.5.5 0 0 1 0-.708z"
+        },
+        delete: {
+          class: "bi bi-x",
+          width: "2em",
+          height: "2em",
+          dOne: "M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z",
+          dTwo: "M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"
+        }
+      };
+      const svgElement = document.createElementNS(obj.xmlns, "svg");
+      svgElement.setAttribute("viewBox", obj.viewBox);
+      svgElement.setAttribute("fill", obj.fill);
+      svgElement.setAttribute("width", obj[btnType].width);
+      svgElement.setAttribute("height", obj[btnType].height);
+      svgElement.setAttribute("class", `${obj[btnType].class} ${btnClass}`);
+      const pathOneElement = document.createElementNS(obj.xmlns, "path");
+      pathOneElement.setAttribute("fill-rule", obj.fillRule);
+      pathOneElement.setAttribute("d", obj[btnType].dOne);
+      const pathTwoElement = document.createElementNS(obj.xmlns, "path");
+      pathTwoElement.setAttribute("fill-rule", obj.fillRule);
+      pathTwoElement.setAttribute("d", obj[btnType].dTwo);
+      svgElement.append(pathOneElement);
+      svgElement.append(pathTwoElement);
+      return svgElement;
     }
 });

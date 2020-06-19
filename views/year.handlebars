@@ -1,51 +1,58 @@
 <head>
-    <title>Annual Lineworkers Rodeo Scoring | {{#each arrays}} {{title}} {{/each}}</title>
-    {{> main/head-block}}
-    <!-- view page js script -->
-    <script type="text/javascript" src="/assets/js/year.js"></script>
+  <title>Annual Lineworkers Rodeo Scoring | {{#each arrays}} {{title}} {{/each}}</title>
+  {{> main/head-block}}
+  <!-- view page js script -->
+  <script type="text/javascript" src="/assets/js/year.js"></script>
 </head>
-<body class="background">
 
-    {{#each arrays}}
-        {{> main/title-block}}
-    {{/each}}
+<body class="background mx-auto">
 
-    <main>
+  {{#each arrays}}
+  {{> main/title-block}}
+  {{/each}}
 
-        <section class="main-container mx-auto text-center">
+  <main>
 
-            <p class="item-title mx-auto">Select Competition Year</p>
-            
-            <select id="year-select">
-                {{#each arrays}}
-                    {{#each years}}
-                        {{> year/year-block}}
-                    {{/each}}
-                {{/each}}
-            </select>
+    <section class="section-container mx-auto text-center">
 
-        </section>
+      <p class="item-title mx-auto">Select Competition Year</p>
 
-        <section id="dynamic"></section>
+      <select id="year-select">
+        {{#each arrays}}
+        {{#each years}}
+        {{> year/year-block}}
+        {{/each}}
+        {{/each}}
+      </select>
 
-        <section class="main-container mx-auto text-center">
+    </section>
 
-            <p class="item-title mx-auto">Select Competition Tier to Add</p>
-            
-            <select id="tier-select">
-                {{#each arrays}}
-                    {{#each tiers}}
-                        {{> year/tier-block}}
-                    {{/each}}
-                {{/each}}
-            </select>
+    <section id="dynamic"></section>
 
-            <button class="button" id="year-add-tier-button">Add Tier</button>
+    <section class="section-container mx-auto text-center">
 
-        </section>
+      <p class="item-title mx-auto">Select Competition Tier to Add</p>
 
-    </main>
+      <div class="row mx-auto text-center">
+        <select id="tier-select" class="year-input mx-auto">
+          {{#each arrays}}
+          {{#each tiers}}
+          {{> year/tier-block}}
+          {{/each}}
+          {{/each}}
+        </select>
+        <svg id="year-add-tier-button" class="bi bi-plus square-button mx-auto" width="2em" height="2em"
+          viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z" />
+          <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z" />
+        </svg>
+      </div>
 
-    {{> main/nav-menu-block}}
+    </section>
+
+  </main>
+
+  {{> main/nav-menu-block}}
 
 </body>

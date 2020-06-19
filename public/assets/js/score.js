@@ -66,7 +66,7 @@ $(() => {
         $.get("/api/score/competitor/" + input, (data) => {
             for (let i = 0; i < data.length; i++) {
                 var sectionEl = $("<div>");
-                sectionEl.attr("class", "main-container mx-auto text-center");
+                sectionEl.attr("class", "section-container mx-auto text-center");
                 var pTitleEl = $("<p>");
                 pTitleEl.attr("class", "mini-title mx-auto");
                 pTitleEl.text(data[i].name);
@@ -74,15 +74,15 @@ $(() => {
                 var div1El = $("<div>");
                 div1El.attr("class", "row mx-auto");
                 var pScoreEl = $("<p>");
-                pScoreEl.attr("class", "score-title mx-auto");
+                pScoreEl.attr("class", "item-title score-title mx-auto");
                 pScoreEl.text("Score");
                 div1El.append(pScoreEl);
                 var pMinEl = $("<p>");
-                pMinEl.attr("class", "score-title mx-auto");
+                pMinEl.attr("class", "item-title score-title mx-auto");
                 pMinEl.text("Minutes");
                 div1El.append(pMinEl);
                 var pSecEl = $("<p>");
-                pSecEl.attr("class", "score-title mx-auto");
+                pSecEl.attr("class", "item-title score-title mx-auto");
                 pSecEl.text("Seconds");
                 div1El.append(pSecEl);
                 sectionEl.append(div1El);
@@ -114,7 +114,7 @@ $(() => {
                 $("#score-container").append(sectionEl);
             }
             var sectionEl = $("<div>");
-            sectionEl.attr("class", "main-container mx-auto text-center");
+            sectionEl.attr("class", "section-container mx-auto text-center");
             var saveButtonEl = $("<button>");
             saveButtonEl.attr("id", "save-button");
             saveButtonEl.attr("class", "button");
