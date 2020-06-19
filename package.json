@@ -1,5 +1,5 @@
 {
-  "name": "Santee Cooper Rodeo Scoring",
+  "name": "rodeo-scoring",
   "version": "1.0.0",
   "description": "Rodeo Scoring Database",
   "main": "server.js",
