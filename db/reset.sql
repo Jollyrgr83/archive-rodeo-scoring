@@ -1,4 +1,4 @@
-USE rodeo_db;
+USE rodeo;
 
 DROP TABLE tiers;
 DROP TABLE events;

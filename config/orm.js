@@ -1,6 +1,6 @@
-var connection = require("../config/connection.js");
+const connection = require("../config/connection.js");
 
-var orm = {
+const orm = {
     // SELECT QUERIES
     selectAllFromOneTable: (table_name, cb) => {
         if (table_name === "years") {

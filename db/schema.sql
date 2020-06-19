@@ -1,6 +1,6 @@
-CREATE DATABASE rodeo_db;
+CREATE DATABASE rodeo;
 
-USE rodeo_db;
+USE rodeo;
 
 CREATE TABLE tiers (
     id INT AUTO_INCREMENT NOT NULL,

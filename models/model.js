@@ -1,6 +1,6 @@
-var orm = require("../config/orm.js");
+const orm = require("../config/orm.js");
 
-var model = {
+const model = {
     getAllFromOneTable: (table_name, cb) => {
         orm.selectAllFromOneTable(table_name, res => cb(res));
     },

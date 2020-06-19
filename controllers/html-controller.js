@@ -1,7 +1,6 @@
-var express = require("express");
-var router = express.Router();
-
-var model = require("../models/model.js");
+const express = require("express");
+const router = express.Router();
+const model = require("../models/model.js");
 
 router.get("/", (req, res) => {
     res.render("index", {title: "Annual Lineworkers Rodeo Scoring"});

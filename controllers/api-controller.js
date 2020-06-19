@@ -1,7 +1,6 @@
-var express = require("express");
-var router = express.Router();
-var model = require("../models/model.js");
-var fs = require("fs");
+const express = require("express");
+const router = express.Router();
+const model = require("../models/model.js");
 
 // sends data to view.js to build the view and edit items section
 router.get("/api/view/menu/:tableName", (req, res) => {

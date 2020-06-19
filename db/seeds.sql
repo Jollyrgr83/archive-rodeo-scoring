@@ -1,4 +1,4 @@
-USE rodeo_db;
+USE rodeo;
 
 INSERT INTO tiers (id, name, team) VALUES 
 (1, "Apprentice", false),
