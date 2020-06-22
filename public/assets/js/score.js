@@ -106,7 +106,6 @@ $(() => {
                 inputSecEl.attr("id", `seconds-input-${i}`);
                 inputSecEl.attr("class", "score-input mx-auto");
                 inputSecEl.attr("type", "number");
-                // inputSecEl.attr("pattern", "^\d+(?:\.\d{1,2})?$");
                 inputSecEl.attr("data-record-id", data[i].id);
                 inputSecEl.attr("value", data[i].time_seconds);
                 div2El.append(inputSecEl);

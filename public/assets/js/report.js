@@ -3,24 +3,24 @@ $(() => {
 
     let obj;
 
-    $(document).on("click", ".button", (event) => {
+    $(document).on("click", ".button", () => {
       $.get("/api/retrieve-report/", (data) => {
         console.log("report", data);
         window.location.href = "/api/retrieve-report/";
       });
     });
 
-    $(document).on("change", "#year-select", event => getAll());
+    $(document).on("change", "#year-select", () => getAll());
 
-    $(document).on("change", "#report-select", event => renderTierMenu());
+    $(document).on("change", "#report-select", () => renderTierMenu());
 
-    $(document).on("change", "#org-select", event => renderTierMenu());
+    $(document).on("change", "#org-select", () => renderTierMenu());
 
-    $(document).on("change", "#tier-select", event => renderEventMenu());
+    $(document).on("change", "#tier-select", () => renderEventMenu());
 
-    $(document).on("change", "#dynamic-select-org", event => renderScores());
+    $(document).on("change", "#dynamic-select-org", () => renderScores());
 
-    $(document).on("change", "#event-select", event => renderScores());
+    $(document).on("change", "#event-select", () => renderScores());
 
     function getAll() {
         $.get("/api/report/all/" + parseInt($("#year-select").val()), (data) => {
