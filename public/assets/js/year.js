@@ -1,7 +1,7 @@
 $(() => {
     getYearSetup();
 
-    $(document).on("change", "#year-select", event => getYearSetup());
+    $(document).on("change", "#year-select", () => getYearSetup());
 
     $(document).on("click", ".button", (event) => {
         if ($(event.target).attr("class").indexOf("delete") != -1) {
@@ -24,7 +24,7 @@ $(() => {
                 tier_id: parseInt($(event.target).attr("data-tier_id")),
                 event_id: parseInt($(event.target).attr("data-event_id"))
             }
-        }).then(res => getYearSetup());      
+        }).then(() => getYearSetup());      
       } else {
         $.ajax("/api/year/tier/", {
           type: "POST",
@@ -32,7 +32,7 @@ $(() => {
               year_id: parseInt($("#year-select").val()),
               tier_id: parseInt($("#tier-select").val())
           }
-          }).then(res => getYearSetup());
+          }).then(() => getYearSetup());
       }
     });
 

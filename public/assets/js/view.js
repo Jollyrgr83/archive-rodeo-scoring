@@ -16,6 +16,8 @@ $(() => {
                     var teamStatus = null;
                     var coopStatus = $("#organizations-add-select").val();
                 }
+                console.log("val", $("#tiers-add-select").val());
+                console.log("teamStatus", teamStatus);
                 renderAddMessage("success", titleName, itemName, teamStatus, coopStatus);
             }
         }
@@ -42,7 +44,7 @@ $(() => {
         }
     });
 
-    $(document).on("change", "#add-menu", event => renderAddMenu());
+    $(document).on("change", "#add-menu", () => renderAddMenu());
 
     function getView(titleName, status) {
         const dataObj = {
@@ -61,10 +63,10 @@ $(() => {
         var warningDivEl = $("<p>");
         warningDivEl.attr("class", "warning mx-auto text-center");
         var warningTitleEl = $("<p>");
-        warningTitleEl.attr("style", "font-size: 32px; margin-bottom: 0;");
+        warningTitleEl.attr("style", "font-size: 18px; margin-bottom: 0;");
         warningTitleEl.text("WARNING!");
         var warningTextEl = $("<p>");
-        warningTextEl.attr("style", "font-size: 18px;");
+        warningTextEl.attr("style", "font-size: 12px;");
         warningTextEl.text("Deleting an item will also remove all records associated with that item.");
         var pTitleEl = $("<p>");
         pTitleEl.attr("class", "mini-title mx-auto");
@@ -118,9 +120,11 @@ $(() => {
             tiersSelectEl.attr("id", "tiers-add-select");
             var optionYesEl = $("<option>");
             optionYesEl.text("Individuals");
+            optionYesEl.val(0);
             tiersSelectEl.append(optionYesEl);
             var optionNoEl = $("<option>");
             optionNoEl.text("Teams");
+            optionNoEl.val(1);
             tiersSelectEl.append(optionNoEl);
             $("#add-container").append(tiersSelectEl);
         } else if (titleName === "Organizations") {
@@ -158,9 +162,9 @@ $(() => {
             $("#add-container").append(textEl);
         } else {
             const addObj = {titleName: titleName, itemName: itemName};
-            if (teamStatus === "Individuals") {
+            if (teamStatus === "1") {
                 addObj.teamStatus = true;
-            } else if (teamStatus === "Teams") {
+            } else if (teamStatus === "0") {
                 addObj.teamStatus = false;
             } else if (coopStatus === "Yes") {
                 addObj.coopStatus = true;
@@ -170,7 +174,7 @@ $(() => {
             $.ajax("/api/view/", {
                 type: "POST",
                 data: addObj
-            }).then((res) => {
+            }).then(() => {
                 getView($("#view-menu").val());
                 var textEl = $("<p>");
                 textEl.attr("class", "item-title");
