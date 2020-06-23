@@ -4,7 +4,7 @@ $(() => {
     $(document).on("change", "#year-select", () => getYearSetup());
 
     $(document).on("click", ".button", (event) => {
-        if ($(event.target).attr("class").indexOf("delete") != -1) {
+        if ($(event.target).attr("class").indexOf("del-btn") != -1) {
             $.ajax("/api/year/tier/", {
                 type: "DELETE",
                 data: {
@@ -44,7 +44,7 @@ $(() => {
                 tier_id: parseInt($(event.target).attr("data-id")),
                 event_id: parseInt($(`#year-add-event-select-${parseInt($(event.target).attr("data-id"))}`).val())
             }
-        }).then(res => getYearSetup());
+        }).then(() => getYearSetup());
     });
 
     function getYearSetup() {
@@ -101,9 +101,8 @@ $(() => {
             pDelEl.text("Delete Tier");
             containerEl.append(pDelEl);
             var delTierButtonEl = $("<button>");
-            delTierButtonEl.attr("class", "button mx-auto delete");
+            delTierButtonEl.attr("class", "button mx-auto del-btn");
             delTierButtonEl.attr("data-tier_id", data.tiers[i].tier_id);
-            delTierButtonEl.attr("style", "background-color: red; border: solid 2px red;");
             delTierButtonEl.text("Delete Tier");
             containerEl.append(delTierButtonEl);
             $("#dynamic").append(containerEl);

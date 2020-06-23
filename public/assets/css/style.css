@@ -62,7 +62,7 @@
 .button {
   background-color: #275937;
   color: white;
-  border: solid 1px #275937;
+  border: none;
   border-radius: 40px;
   box-shadow: 2px 2px 5px black;
   margin: 10px;
@@ -72,6 +72,7 @@
 .square-button {
   background-color: #275937;
   color: white;
+  border: none;
   border-radius: 10px;
   box-shadow: 2px 2px 5px black;
   margin-bottom: 10px;
