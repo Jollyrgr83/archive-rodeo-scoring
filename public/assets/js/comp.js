@@ -50,7 +50,6 @@ $(() => {
   // retrieves selected competitor information and renders page components
   const renderCompInfo = () => {
     $.get(`/api/comp/competitor/${parseInt($("#comp-select").val())}`, (data) => {
-      console.log("data: ", data);
         return data.team === 0 ? renderIndividual(data) : renderTeam(data);
       }
     );
@@ -99,12 +98,14 @@ $(() => {
     const delEl = h({ e: "button", i: "comp-delete-button", c: "button del-btn", di: data.id, tx: "Delete Competitor" });
     const orgSelectTitleEl = h({ e: "p", c: "item-title mx-auto", tx: "Organization"});
     const orgSelectEl = h({ e: "select", i: "edit-org-select" });
-    for (let i = 0; i < data.organizations.length; i++) {
-      const optionEl = h({ e: "option", v: data.organizations[i].id, tx: data.organizations[i].name });
-      if (data.organizations[i].active) {
-        optionEl.attr("selected", "selected");
+    if (data.organizations !== undefined) {
+      for (let i = 0; i < data.organizations.length; i++) {
+        const optionEl = h({ e: "option", v: data.organizations[i].id, tx: data.organizations[i].name });
+        if (data.organizations[i].active) {
+          optionEl.attr("selected", "selected");
+        }
+        orgSelectEl.append(optionEl);
       }
-      orgSelectEl.append(optionEl);
     }
     $("#view-dynamic-comp-info").append(compNumTitleEl);
     $("#view-dynamic-comp-info").append(compNumEl);
