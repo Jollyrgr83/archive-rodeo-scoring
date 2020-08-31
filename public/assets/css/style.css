@@ -11,8 +11,8 @@
 .title {
   background-color: #275937;
   color: white;
-  border-radius: 10px;
-  box-shadow: 2px 2px 5px black;
+  border-radius: 5px;
+  box-shadow: 3px 3px 12px black;
   padding: 5px;
   text-align: center;
   font-size: 22px;
@@ -24,17 +24,16 @@
 /* page elements */
 .section-container {
   background-color: rgba(39, 89, 55, 10%);
-  border: solid 1px #275937;
-  border-radius: 10px;
-  box-shadow: 2px 2px 5px black;
+  /* border: solid 1px #275937; */
+  border-radius: 5px;
+  box-shadow: 3px 3px 12px black;
   margin: 10px 0 10px 0;
   padding: 20px;
 }
 .result-container {
   background-color: lightgray;
-  border: solid 1px #275937;
-  border-radius: 10px;
-  box-shadow: 2px 2px 5px black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px black;
   margin: 10px 0 10px 0;
   padding: 10px;
 }
@@ -43,8 +42,8 @@
   background-color: #275937;
   color: white;
   border: solid 1px #275937;
-  border-radius: 10px;
-  box-shadow: 2px 2px 5px black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px black;
   margin-bottom: 10px;
   padding: 5px;
   text-align: center;
@@ -99,14 +98,6 @@
   cursor: pointer;
   outline: none;
 }
-/* .button:hover,
-.button:focus,
-.square-button:hover,
-.square-button:focus {
-  outline: none;
-  opacity: 0.7;
-  cursor: pointer;
-} */
 /* user input elements */
 input:enabled,
 input:focus,
@@ -115,7 +106,7 @@ input:active {
   color: #275937;
   border: none;
   border-radius: 10px;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 1px 1px 3px black;
   margin-bottom: 10px;
   padding: 5px;
   width: 295px;
@@ -128,7 +119,7 @@ select:active {
   color: #275937;
   border: none;
   border-radius: 10px;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 1px 1px 3px black;
   margin-bottom: 10px;
   padding: 5px;
   width: 295px;
@@ -141,7 +132,7 @@ select:active {
   color: white;
   border: none;
   border-radius: 15px;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 3px 3px 12px black;
   width: 295px;
   text-align: center;
   margin-top: 10px;
