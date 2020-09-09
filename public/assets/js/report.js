@@ -4,7 +4,6 @@ $(() => {
   let obj;
 
   $(document).on("click", ".button", () => {
-    // $.get("/api/retrieve-report/", () => window.location.href = "/api/retrieve-report/");
     $.get("/api/retrieve-report/", () => console.log("download pdf"));
   });
 

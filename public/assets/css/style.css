@@ -34,7 +34,7 @@
   max-width: 90%;
 }
 .result-container {
-  background-color: lightgray;
+  background-color: #e6e6e6;
   border-radius: 5px;
   box-shadow: 1px 1px 3px black;
   margin: 10px 0 10px 0;
@@ -144,7 +144,7 @@ select:active {
 }
 /* warning element on view page */
 .warning {
-  background-color: rgb(192, 0, 0);
+  background-color: #C00000;
   color: white;
   border: none;
   border-radius: 15px;
