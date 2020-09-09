@@ -12,11 +12,11 @@
 
     <main>
 
-        <section class="section-container mx-auto text-center">
+        <section class="container mx-auto text-center">
 
-            <p class="item-title mx-auto">Select Competition Year</p>
-            
-            <select id="year-select">
+            <p class="subtitle mx-auto">Competition Year</p>
+            <hr class="line large mx-auto">
+            <select id="year-select" class="full mx-auto">
                 {{#each arrays}}
                     {{#each years}}
                         {{> year/year-block}}
@@ -26,9 +26,11 @@
             
         </section>
     
-        <section id="view-section" class="section-container mx-auto text-center">
+        <section id="view-section" class="container mx-auto text-center">
 
-            <p class="mini-title mx-auto">View/Edit Competitors</p>
+            <p class="subtitle mx-auto">View/Edit Competitors</p>
+
+            <hr class="line full mx-auto">
 
             <div id="view-dynamic-comp-select"></div>
             
@@ -36,13 +38,15 @@
 
         </section>
 
-        <section id="add-section" class="section-container mx-auto text-center">
+        <section id="add-section" class="container mx-auto text-center">
 
-            <p class="mini-title mx-auto">Add Competitors</p>
+            <p class="subtitle mx-auto">Add Competitors</p>
 
-            <p class="item-title mx-auto">Select Competition Tier</p>
+            <hr class="line full mx-auto">
+
+            <p class="subtitle mx-auto">Select Competition Tier</p>
             
-            <select id="tier-select">
+            <select id="tier-select" class="full mx-auto">
                 {{#each arrays}}
                     {{#each tiers}}
                         {{> year/tier-block}}
@@ -55,7 +59,5 @@
         </section>
 
     </main>
-
-    {{> main/nav-menu-block}}
 
 </body>

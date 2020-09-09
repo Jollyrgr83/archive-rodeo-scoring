@@ -12,11 +12,11 @@
 
     <main>
 
-        <section class="section-container mx-auto text-center">
+        <section class="container mx-auto text-center">
 
-            <p class="item-title mx-auto">Select Competition Year</p>
-            
-            <select id="year-select">
+            <p class="subtitle mx-auto">Select Competition Year</p>
+            <hr class="line large mx-auto">
+            <select id="year-select" class="full mx-auto">
                 {{#each arrays}}
                     {{#each years}}
                         {{> year/year-block}}
@@ -31,7 +31,5 @@
         <section id="score-container"></section>
 
     </main>
-
-    {{> main/nav-menu-block}}
 
 </body>

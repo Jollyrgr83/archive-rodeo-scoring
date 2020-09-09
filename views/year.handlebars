@@ -13,11 +13,12 @@
 
   <main>
 
-    <section class="section-container mx-auto text-center">
+    <section class="container mx-auto text-center">
 
-      <p class="item-title mx-auto">Select Competition Year</p>
+      <p class="subtitle mx-auto">Select Competition Year</p>
+      <hr class="line large mx-auto">
 
-      <select id="year-select">
+      <select id="year-select" class="full mx-auto">
         {{#each arrays}}
         {{#each years}}
         {{> year/year-block}}
@@ -29,30 +30,24 @@
 
     <section id="dynamic"></section>
 
-    <section class="section-container mx-auto text-center">
+    <section class="container mx-auto text-center">
 
-      <p class="item-title mx-auto">Select Competition Tier to Add</p>
+      <p class="subtitle mx-auto">Add a Competition Tier</p>
+      <hr class="line large mx-auto">
 
-      <div class="row mx-auto text-center">
-        <select id="tier-select" class="year-input mx-auto">
+      <div class="row mx-auto text-center row-container">
+        <select id="tier-select" class="large mx-auto">
           {{#each arrays}}
             {{#each tiers}}
               {{> year/tier-block}}
             {{/each}}
           {{/each}}
         </select>
-        <svg id="year-add-tier-button" class="bi bi-plus square-button mx-auto" width="2em" height="2em"
-          viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd"
-            d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z" />
-          <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z" />
-        </svg>
+        <i class="fas fa-plus square-button blue mx-auto" id="year-add-tier-button"></i>
       </div>
 
     </section>
 
   </main>
-
-  {{> main/nav-menu-block}}
 
 </body>

@@ -4,7 +4,8 @@ $(() => {
   let obj;
 
   $(document).on("click", ".button", () => {
-    $.get("/api/retrieve-report/", () => window.location.href = "/api/retrieve-report/");
+    // $.get("/api/retrieve-report/", () => window.location.href = "/api/retrieve-report/");
+    $.get("/api/retrieve-report/", () => console.log("download pdf"));
   });
 
   $(document).on("change", "#year-select", () => getAll());
@@ -112,8 +113,10 @@ $(() => {
       content[1].table.body.push(tArr);
     }
     // render event title
-    const pTitleEl = h({ e: "p", c: "mini-title mx auto", tx: obj.event_ref[event_id] });
+    const pTitleEl = h({ e: "p", c: "subtitle mx-auto", tx: obj.event_ref[event_id] });
     $("#dynamic").append(pTitleEl);
+    const lineEl = h({ e: "hr", c: "line full mx-auto"});
+    $("#dynamic").append(lineEl);
     let x = obj.tiers[tier_id][event_id].length;
     if ($("#report-select").val() === "0") {
       x = obj.tiers[tier_id][event_id].length < 3 ? obj.tiers[tier_id][event_id].length : 3;
@@ -124,13 +127,15 @@ $(() => {
       if (org_id === "all" || org_id === obj.comp_ref[competitor_id].org_id) {
         // render html elements
         const divEl = h({ e: "div", c: "result-container mx-auto" });
-        const pRankEl = h({ e: "p", c: "mini-title mx-auto", tx: `Place: ${i + 1}` });
-        const pCompNumberEl = h({ e: "p", c: "item-title mx-auto", tx: obj.comp_ref[competitor_id].comp_number });
-        const pNameEl = h({ e: "p", c: "item-title mx-auto", tx: obj.tier_ref[tier_id].team === 0 ? `${obj.comp_ref[competitor_id].first_name} ${obj.comp_ref[competitor_id].last_name}` : `${obj.comp_ref[competitor_id].team_name}: ${obj.comp_ref[competitor_id].group_names}` });
-        const pOrgEl = h({ e: "p", c: "item-title mx-auto", tx: obj.comp_ref[competitor_id].org_name });
-        const pScoreEl = h({ e: "p", c: "item-title mx-auto", tx: obj.tiers[tier_id][event_id][i].score });
-        const pTimeEl = h({ e: "p", c: "item-title mx-auto", tx: `${Math.floor(obj.tiers[tier_id][event_id][i].total_seconds / 60)}:${(obj.tiers[tier_id][event_id][i].total_seconds % 60).toFixed(2)}` });
+        const pRankEl = h({ e: "p", c: "subtitle mx-auto", tx: `Place: ${i + 1}` });
+        const divLineEl = h({ e: "hr", c: "line large mx-auto"});
+        const pCompNumberEl = h({ e: "p", c: "text mx-auto", tx: obj.comp_ref[competitor_id].comp_number });
+        const pNameEl = h({ e: "p", c: "text mx-auto", tx: obj.tier_ref[tier_id].team === 0 ? `${obj.comp_ref[competitor_id].first_name} ${obj.comp_ref[competitor_id].last_name}` : `${obj.comp_ref[competitor_id].team_name}: ${obj.comp_ref[competitor_id].group_names}` });
+        const pOrgEl = h({ e: "p", c: "text mx-auto", tx: obj.comp_ref[competitor_id].org_name });
+        const pScoreEl = h({ e: "p", c: "text mx-auto", tx: obj.tiers[tier_id][event_id][i].score });
+        const pTimeEl = h({ e: "p", c: "text mx-auto", tx: `${Math.floor(obj.tiers[tier_id][event_id][i].total_seconds / 60)}:${(obj.tiers[tier_id][event_id][i].total_seconds % 60).toFixed(2)}` });
         divEl.append(pRankEl);
+        divEl.append(divLineEl);
         divEl.append(pCompNumberEl);
         divEl.append(pNameEl);
         divEl.append(pOrgEl);

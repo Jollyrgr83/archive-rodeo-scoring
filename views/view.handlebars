@@ -10,33 +10,32 @@
 
     <main>
 
-        <section class="section-container mx-auto text-center">
+        <section class="container mx-auto text-center">
 
-            <p class="mini-title mx-auto">View and Edit Items</p>
 
-            <p class="item-title mx-auto">Select a Category to View/Edit</p>
+            <p class="subtitle mx-auto">Select a Category</p>
+            <hr class="line full mx-auto">
 
-            <select id="view-menu">
+            <select id="view-menu" class="full mx-auto">
                 <option>Tiers</option>
                 <option>Events</option>
                 <option>Organizations</option>
                 <option>Years</option>
             </select>
 
-            <button class="button" id="view-menu-button">Show Items</button>
+            <button class="button blue" id="view-menu-button">Show Items</button>
 
             <div class="mx-auto text-center" id="view-container"></div>
 
         </section>
 
 
-        <section class="section-container mx-auto text-center">
+        <section class="container mx-auto text-center">
 
-            <p class="mini-title mx-auto">Add Items</p>
+            <p class="subtitle mx-auto">Select an Item to Add</p>
+            <hr class="line full mx-auto">
 
-            <p class="item-title mx-auto">Select an Item to Add</p>
-
-            <select id="add-menu">
+            <select id="add-menu" class="full mx-auto">
                 <option>Tiers</option>
                 <option>Events</option>
                 <option>Organizations</option>
@@ -48,7 +47,5 @@
         </section>
         
     </main>
-
-    {{> main/nav-menu-block}}
 
 </body>

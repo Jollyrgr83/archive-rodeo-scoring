@@ -1,61 +1,62 @@
 <head>
-    <title>Annual Lineworkers Rodeo Scoring | {{title}}</title>
-    {{> main/head-block}}
-    <!-- reports page js script -->
-    <script type="text/javascript" src="/assets/js/report.js"></script>
+  <title>Annual Lineworkers Rodeo Scoring | {{title}}</title>
+  {{> main/head-block}}
+  <!-- reports page js script -->
+  <script type="text/javascript" src="/assets/js/report.js"></script>
 </head>
+
 <body class="background mx-auto">
 
-    {{#each arrays}}
-        {{> main/title-block}}
-    {{/each}}
+  {{#each arrays}}
+  {{> main/title-block}}
+  {{/each}}
 
-    <main>
+  <main>
 
-        <section class="section-container mx-auto text-center">
+    <section class="container mx-auto text-center">
 
-            <p class="item-title mx-auto">Select Competition Year</p>
-            
-            <select id="year-select">
-                {{#each arrays}}
-                    {{#each years}}
-                        {{> year/year-block}}
-                    {{/each}}
-                {{/each}}
-            </select>
+      <p class="subtitle mx-auto">Select Competition Year</p>
+      <hr class="line large mx-auto">
 
-            <p class="item-title mx-auto">Select Report Type</p>
+      <select id="year-select" class="full mx-auto">
+        {{#each arrays}}
+        {{#each years}}
+        {{> year/year-block}}
+        {{/each}}
+        {{/each}}
+      </select>
 
-            <select id="report-select">
-                <option value="0">View Awards Layout (Top 3)</option>
-                <option value="1">View All Results</option>
-            </select>
+      <p class="subtitle mx-auto">Select Report Type</p>
+      <hr class="line large mx-auto">
+      <select id="report-select" class="full mx-auto">
+        <option value="0">View Awards Layout (Top 3)</option>
+        <option value="1">View All Results</option>
+      </select>
 
-            <p class="item-title mx-auto">Select Organization</p>
+      <p class="subtitle mx-auto">Select Organization</p>
+      <hr class="line large mx-auto">
+      <select id="org-select" class="full mx-auto"></select>
 
-            <select id="org-select"></select>
+      <p class="subtitle mx-auto">Select Competition Tier</p>
+      <hr class="line large mx-auto">
+      <select id="tier-select" class="full mx-auto"></select>
 
-            <p class="item-title mx-auto">Select Competition Tier</p>
+      <p class="subtitle mx-auto">Select Event/Overall</p>
+      <hr class="line large mx-auto">
+      <select id="event-select" class="full mx-auto"></select>
 
-            <select id="tier-select"></select>
+    </section>
 
+    <section class="mx-auto text-center">
 
-            <p class="item-title mx-auto">Select Event/Overall</p>
+      <a id="print" class="blue mx-auto" href="/api/retrieve-report/" target="_blank">Create pdf</a>
 
-            <select id="event-select"></select>
-        
-        </section>
+      {{!-- <button id="print" class="button blue mx-auto">Create pdf</button> --}}
 
-        <section class="section-container mx-auto text-center">
+    </section>
 
-            <button id="print" class="button">Create pdf</button>
+    <section id="dynamic" class="container mx-auto text-center"></section>
 
-        </section>
-
-        <section id="dynamic" class="section-container mx-auto text-center"></section>
-
-    </main>
-
-    {{> main/nav-menu-block}}
+  </main>
 
 </body>

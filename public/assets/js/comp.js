@@ -42,11 +42,11 @@ $(() => {
     $("#view-dynamic-comp-select").empty();
     const menuTitleEl = h({
       e: "p",
-      c: "item-title mx-auto",
+      c: "subtitle mx-auto",
       tx: "Select a Competitor",
     });
     $("#view-dynamic-comp-select").append(menuTitleEl);
-    const menuEl = h({ e: "select", i: "comp-select" });
+    const menuEl = h({ e: "select", i: "comp-select", c: "full mx-auto" });
     for (let i = 0; i < data.length; i++) {
       const optionEl = h({
         e: "option",
@@ -72,38 +72,38 @@ $(() => {
     $("#view-dynamic-comp-info").empty();
     const compNumTitleEl = h({
       e: "p",
-      c: "item-title mx-auto",
+      c: "subtitle mx-auto",
       tx: "Competitor Number",
     });
-    const compNumEl = h({ e: "input", i: "comp-number", v: data.comp_number });
+    const compNumEl = h({ e: "input", i: "comp-number", v: data.comp_number, c: "full mx-auto" });
     const firstTitleEl = h({
       e: "p",
-      c: "item-title mx-auto",
+      c: "subtitle mx-auto",
       tx: "First Name",
     });
-    const firstEl = h({ e: "input", i: "first-name", v: data.first_name });
-    const lastTitleEl = h({ e: "p", c: "item-title mx-auto", tx: "Last Name" });
-    const lastEl = h({ e: "input", i: "last-name", v: data.last_name });
+    const firstEl = h({ e: "input", i: "first-name", v: data.first_name, c: "full mx-auto" });
+    const lastTitleEl = h({ e: "p", c: "subtitle mx-auto", tx: "Last Name" });
+    const lastEl = h({ e: "input", i: "last-name", v: data.last_name, c: "full mx-auto" });
     const saveEl = h({
       e: "button",
       i: "comp-save-button",
       di: data.id,
-      c: "button",
-      tx: "Save Changes",
+      c: "button blue mx-auto",
+      tx: "Update",
     });
     const delEl = h({
       e: "button",
       i: "comp-delete-button",
-      c: "button  del-btn",
+      c: "button red del-btn mx-auto",
       di: data.id,
-      tx: "Delete Competitor",
+      tx: "Delete",
     });
     const orgSelectTitleEl = h({
       e: "p",
-      c: "item-title mx-auto",
+      c: "subtitle mx-auto",
       tx: "Organization",
     });
-    const orgSelectEl = h({ e: "select", i: "edit-org-select" });
+    const orgSelectEl = h({ e: "select", i: "edit-org-select", c: "full mx-auto" });
     for (let i = 0; i < data.organizations.length; i++) {
       const optionEl = h({
         e: "option",
@@ -115,6 +115,10 @@ $(() => {
       }
       orgSelectEl.append(optionEl);
     }
+    const rowContainerEl = h({
+      e: "div",
+      c: "row text-center mx-auto"
+    });
     $("#view-dynamic-comp-info").append(compNumTitleEl);
     $("#view-dynamic-comp-info").append(compNumEl);
     $("#view-dynamic-comp-info").append(firstTitleEl);
@@ -123,46 +127,51 @@ $(() => {
     $("#view-dynamic-comp-info").append(lastEl);
     $("#view-dynamic-comp-info").append(orgSelectTitleEl);
     $("#view-dynamic-comp-info").append(orgSelectEl);
-    $("#view-dynamic-comp-info").append(saveEl);
-    $("#view-dynamic-comp-info").append(delEl);
+    rowContainerEl.append(saveEl);
+    rowContainerEl.append(delEl);
+    $("#view-dynamic-comp-info").append(rowContainerEl);
   }
   // renders competitor information section if tier is team
   function renderTeam(data) {
     $("#view-dynamic-comp-info").empty();
     const compNumTitleEl = h({
       e: "p",
-      c: "item-title mx-auto",
+      c: "subtitle mx-auto",
       tx: "Competitor Number",
     });
-    const compNumEl = h({ e: "input", i: "comp-number", v: data.comp_number });
-    const teamTitleEl = h({ e: "p", c: "item-title mx-auto", tx: "Team Name" });
-    const teamEl = h({ e: "input", i: "team-name", v: data.team_name });
+    const compNumEl = h({ e: "input", i: "comp-number", v: data.comp_number, c: "full mx-auto" });
+    const teamTitleEl = h({ e: "p", c: "subtitle mx-auto", tx: "Team Name" });
+    const teamEl = h({ e: "input", i: "team-name", v: data.team_name, c: "full mx-auto" });
     const groupTitleEl = h({
       e: "p",
-      c: "item-title mx-auto",
+      c: "subtitle mx-auto",
       tx: "Group Names",
     });
-    const groupEl = h({ e: "input", i: "group-names", v: data.group_names });
+    const groupEl = h({ e: "input", i: "group-names", v: data.group_names, c: "full mx-auto" });
     const saveEl = h({
       e: "button",
       i: "comp-save-button",
       di: data.id,
-      c: "button",
-      tx: "Save Changes",
+      c: "button blue mx-auto",
+      tx: "Save",
     });
     const delEl = h({
       e: "button",
       i: "comp-delete-button",
-      c: "button del-btn",
+      c: "button red del-btn mx-auto",
       di: data.id,
-      tx: "Delete Competitor",
+      tx: "Delete",
     });
     const orgSelectTitleEl = h({
       e: "p",
-      c: "item-title mx-auto",
+      c: "subtitle mx-auto",
       tx: "Organization",
     });
-    const orgSelectEl = h({ e: "select", i: "edit-org-select" });
+    const rowContainerEl = h({
+      e: "div",
+      c: "row mx-auto",
+    });
+    const orgSelectEl = h({ e: "select", i: "edit-org-select", c: "full mx-auto" });
     if (data.organizations !== undefined) {
       for (let i = 0; i < data.organizations.length; i++) {
         const optionEl = h({
@@ -184,57 +193,58 @@ $(() => {
     $("#view-dynamic-comp-info").append(groupEl);
     $("#view-dynamic-comp-info").append(orgSelectTitleEl);
     $("#view-dynamic-comp-info").append(orgSelectEl);
-    $("#view-dynamic-comp-info").append(saveEl);
-    $("#view-dynamic-comp-info").append(delEl);
+    rowContainerEl.append(saveEl);
+    rowContainerEl.append(delEl);
+    $("#view-dynamic-comp-info").append(rowContainerEl);
   }
   // renders add competitor section
   function renderCompAddInfo() {
     $("#add-dynamic-comp-info").empty();
     const addCompNumTitleEl = h({
       e: "p",
-      c: "item-title mx-auto",
-      tx: "Enter Competitor Number",
+      c: "subtitle mx-auto",
+      tx: "Competitor Number",
     });
-    const addCompNumEl = h({ e: "input", i: "add-comp-number", ty: "text" });
+    const addCompNumEl = h({ e: "input", i: "add-comp-number", ty: "text", c: "full mx-auto" });
     const addFirstTitleEl = h({
       e: "p",
-      c: "item-title mx-auto",
-      tx: "Enter Competitor's First Name",
+      c: "subtitle mx-auto",
+      tx: "First Name",
     });
-    const addFirstEl = h({ e: "input", i: "add-first-name", ty: "text" });
+    const addFirstEl = h({ e: "input", i: "add-first-name", ty: "text", c: "full mx-auto" });
     const addLastTitleEl = h({
       e: "p",
-      c: "item-title mx-auto",
-      tx: "Enter Competitor's Last Name",
+      c: "subtitle mx-auto",
+      tx: "Last Name",
     });
-    const addLastEl = h({ e: "input", i: "add-last-name", ty: "text" });
+    const addLastEl = h({ e: "input", i: "add-last-name", ty: "text", c: "full mx-auto" });
     const addTeamTitleEl = h({
       e: "p",
-      c: "item-title mx-auto",
-      tx: "Enter Competitor Team Name",
+      c: "subtitle mx-auto",
+      tx: "Team Name",
     });
-    const addTeamEl = h({ e: "input", i: "add-team-name", ty: "text" });
+    const addTeamEl = h({ e: "input", i: "add-team-name", ty: "text", c: "full mx-auto" });
     const addGroupTitleEl = h({
       e: "p",
-      c: "item-title mx-auto",
-      tx: "Enter the Group's Names",
+      c: "subtitle mx-auto",
+      tx: "Competitor Names",
     });
-    const addGroupEl = h({ e: "input", i: "add-group-names", ty: "text" });
+    const addGroupEl = h({ e: "input", i: "add-group-names", ty: "text", c: "full mx-auto" });
     const addOrgMenuTitleEl = h({
       e: "p",
-      c: "item-title mx-auto",
-      tx: "Select the Competitor's Organization",
+      c: "subtitle mx-auto",
+      tx: "Organization",
     });
     const addSaveEl = h({
       e: "button",
       i: "add-comp-save-button",
-      c: "button mx-auto",
-      tx: "Add Competitor",
+      c: "button blue mx-auto",
+      tx: "Add",
     });
     $.get(`/api/comp/tier/${parseInt($("#tier-select").val())}`, (res) => {
       if (res[0].team === 0) {
         $.get("/api/comp/org/", (data) => {
-          const addOrgMenuEl = h({ e: "select", i: "org-select" });
+          const addOrgMenuEl = h({ e: "select", i: "org-select", c: "full mx-auto" });
           for (let i = 0; i < data.length; i++) {
             const addOptionEl = h({
               e: "option",
@@ -255,7 +265,7 @@ $(() => {
         });
       } else {
         $.get("/api/comp/org/", (data) => {
-          const addOrgMenuEl = h({ e: "select", i: "org-select" });
+          const addOrgMenuEl = h({ e: "select", i: "org-select", c: "full mx-auto" });
           for (let i = 0; i < data.length; i++) {
             const addOptionEl = h({
               e: "option",
@@ -310,7 +320,7 @@ $(() => {
     $.ajax("/api/comp/", inputObj).then(() => {
       const pEl = h({
         e: "p",
-        c: "item-title mx-auto",
+        c: "subtitle mx-auto",
         tx: "Success! Competitor Added!",
       });
       $("#add-dynamic-comp-info").append(pEl);
@@ -353,7 +363,7 @@ $(() => {
       $.ajax("/api/comp/update/", inputObj).then(() => {
         const pEl = h({
           e: "p",
-          c: "item-title mx-auto",
+          c: "subtitle mx-auto",
           tx: "Success! Changes Saved!",
         });
         $("#view-dynamic-comp-info").append(pEl);

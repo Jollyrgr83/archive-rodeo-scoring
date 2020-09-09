@@ -1,34 +1,37 @@
 /* page width, global font styling, and background */
 .background {
-  background-color: rgba(39, 89, 55, 45%);
+  background-color: #9bb4a5;
+  margin: 0;
+  padding: 10px;
   width: 375px;
-  padding: 20px;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
+  max-width: 100%;
+  font-family: "Montserrat", sans-serif;
 }
 /* header elements */
 .title {
-  background-color: #275937;
-  color: white;
-  border-radius: 5px;
-  box-shadow: 3px 3px 12px black;
+  color: #275937;
   padding: 5px;
   text-align: center;
-  font-size: 22px;
-  font-weight: 300;
+  font-size: 1.5em;
+  font-weight: 700;
+  width: 90%;
+}
+.line {
+  border-top: solid 1px #275937;
+  margin: 5px 0 15px 0;
 }
 .logo {
   width: 100px;
 }
 /* page elements */
-.section-container {
-  background-color: rgba(39, 89, 55, 10%);
-  /* border: solid 1px #275937; */
+.container {
+  background-color: #9bb4a5;
   border-radius: 5px;
-  box-shadow: 3px 3px 12px black;
-  margin: 10px 0 10px 0;
-  padding: 20px;
+  box-shadow: 1px 1px 3px black;
+  margin: 15px;
+  padding: 15px 0 15px 0;
+  width: 375px;
+  max-width: 90%;
 }
 .result-container {
   background-color: lightgray;
@@ -36,19 +39,22 @@
   box-shadow: 1px 1px 3px black;
   margin: 10px 0 10px 0;
   padding: 10px;
+  width: 90%;
+}
+.row-container {
+  width: 90%;
 }
 /* section elements */
-.mini-title {
-  background-color: #275937;
-  color: white;
-  border: solid 1px #275937;
-  border-radius: 5px;
-  box-shadow: 1px 1px 3px black;
-  margin-bottom: 10px;
+.subtitle {
+  color: #275937;
   padding: 5px;
+  margin: 0 0 5px 0;
+  font-size: 1.2em;
+  width: 90%;
   text-align: center;
 }
-.item-title {
+.text {
+  font-size: 0.9em;
   color: #275937;
   margin: 5px;
   padding: 5px;
@@ -59,30 +65,24 @@
 }
 /* buttons */
 .button {
-  background-color: #275937;
-  color: white;
+  outline: none;
   border: none;
   border-radius: 40px;
-  box-shadow: 1px 1px 6px black;
+  box-shadow: 1px 1px 3px black;
   margin: 10px;
-  padding: 5px;
-  width: 250px;
+  padding: 10px;
+  width: 40%;
 }
 .square-button {
-  background-color: #275937;
-  color: white;
   border: none;
-  border-radius: 10px;
-  box-shadow: 1px 1px 6px black;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  padding: 5px;
-  width: 45px;
-  font-size: 22px;
-}
-.del-btn {
-  background-color: rgb(192, 0, 0);
-  color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px black;
+  margin: 0 0 5px 5px;
+  padding: 10px;
+  font-size: 1.4em;
+  height: 1.85em;
+  width: 1.85em;
+  text-align: center;
 }
 .button:hover, .square-button:hover {
   cursor: pointer;
@@ -98,6 +98,22 @@
   cursor: pointer;
   outline: none;
 }
+.red {
+  background-color: #C00000;
+  color: white;
+}
+.blue {
+  background-color: #004b9b;
+  color: white;
+}
+.clear {
+  background-color: #9bb4a5;
+  color: #275937;
+}
+.green {
+  background-color: #275937;
+  color: white;
+}
 /* user input elements */
 input:enabled,
 input:focus,
@@ -105,12 +121,12 @@ input:active {
   background-color: white;
   color: #275937;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 1px 1px 3px black;
   margin-bottom: 10px;
   padding: 5px;
-  width: 295px;
   outline: none;
+  height: 2.6em;
 }
 select:enabled,
 select:focus,
@@ -118,13 +134,13 @@ select:active {
   background-color: white;
   color: #275937;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 1px 1px 3px black;
-  margin-bottom: 10px;
+  margin: 0 0 5px 0;
   padding: 5px;
-  width: 295px;
   text-align: center;
   outline: none;
+  height: 2.6em;
 }
 /* warning element on view page */
 .warning {
@@ -132,26 +148,92 @@ select:active {
   color: white;
   border: none;
   border-radius: 15px;
-  box-shadow: 3px 3px 12px black;
-  width: 295px;
+  box-shadow: 1px 1px 3px black;
+  width: 90%;
   text-align: center;
-  margin-top: 10px;
+  margin: 10px;
   padding: 10px;
 }
 /* width classes */
-.year-input {
-  width: 235px !important;
-  margin-right: 10px !important;
+.small {
+  width: 25%;
 }
-.view-input {
-  width: 175px !important;
-  margin-right: 10px !important;
+.half {
+  width: 60%;
 }
-.score-input {
-  width: 83px !important;
-  text-align: center !important;
+.large {
+  width: 79%;
+}
+.full {
+  width: 90%;
 }
 /* prevents mouse clicks on child elements for vector icons */
-svg > * {
+svg > *, i > * {
   pointer-events: none;
+}
+/* prevents default link styling */
+a {
+  text-emphasis: none;
+  text-decoration: none;
+  display: block;
+  outline: none;
+  border: none;
+  width: 40%;
+  color: white;
+  padding: 10px;
+  margin: 25px;
+  border-radius: 40px;
+  box-shadow: 1px 1px 3px black;
+}
+a:hover {
+  text-emphasis: none;
+  text-decoration: none;
+  display: block;
+  outline: none;
+  border: none;
+  width: 40%;
+  color: white;
+  cursor: pointer;
+  box-shadow: 3px 3px 6px black;
+  padding: 10px;
+  margin: 25px;
+}
+a:active {
+  text-emphasis: none;
+  text-decoration: none;
+  display: block;
+  outline: none;
+  border: none;
+  width: 40%;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 0 black;
+  padding: 10px;
+  margin: 25px;
+}
+a:focus {
+  text-emphasis: none;
+  text-decoration: none;
+  display: block;
+  outline: none;
+  border: none;
+  width: 40%;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  margin: 25px;
+  box-shadow: 0 0 0 black;
+}
+a:enabled {
+  text-emphasis: none;
+  text-decoration: none;
+  display: block;
+  outline: none;
+  border: none;
+  width: 40%;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  margin: 25px;
+  box-shadow: 1px 1px 3px black;
 }

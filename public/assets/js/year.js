@@ -46,83 +46,37 @@ $(() => {
   function renderYearSetup(data) {
     $("#dynamic").empty();
     for (let i = 0; i < data.tiers.length; i++) {
-      const containerEl = h({ e: "section", c: "section-container mx-auto text-center" });
-      const pTitleEl = h({ e: "p", c: "mini-title mx-auto", tx: `${data.tiers[i].name} Tier` });
+      const containerEl = h({ e: "section", c: "container mx-auto text-center" });
+      const pTitleEl = h({ e: "p", c: "subtitle mx-auto", tx: `${data.tiers[i].name} Tier` });
       containerEl.append(pTitleEl);
+      const titleLineEl = h({ e: "hr", c: "line large mx-auto" });
+      containerEl.append(titleLineEl);
       for (let j = 0; j < data[data.tiers[i].name].length; j++) {
-        const itemInputEl = h({ e: "input", c: "year-input mx-auto", di: data[data.tiers[i].name][j].event_id, ty: "text", v: data[data.tiers[i].name][j].name });
-        const deleteButtonEl = svgEl("delete", "square-button del-btn mx-auto");
-        deleteButtonEl.setAttribute("data-event_id", data[data.tiers[i].name][j].event_id);
-        deleteButtonEl.setAttribute("data-tier_id", data.tiers[i].tier_id);
-        const rowEl = h({ e: "div", c: "row mx-auto text-center" });
+        const itemInputEl = h({ e: "input", c: "large mx-auto", di: data[data.tiers[i].name][j].event_id, ty: "text", v: data[data.tiers[i].name][j].name });
+        const deleteButtonEl = h({ e: "i", c: "fas fa-trash-alt square-button del-btn red mx-auto", dei: data[data.tiers[i].name][j].event_id, dti: data.tiers[i].tier_id });
+        const rowEl = h({ e: "div", c: "row mx-auto text-center row-container" });
         rowEl.append(itemInputEl);
         rowEl.append(deleteButtonEl);
         containerEl.append(rowEl);
       }
-      const pAddEl = h({ e: "p", c: "item-title mx-auto", tx: "Add New Event" });
+      const pAddEl = h({ e: "p", c: "subtitle mx-auto", tx: "Add New Event" });
       containerEl.append(pAddEl);
-      const rowContainerEl = h({ e: "div", c: "row mx-auto text-center" });
-      const selectEventEl = h({ e: "select", c: "year-input mx-auto", i: `year-add-event-select-${data.tiers[i].tier_id}`, di: data.tiers[i].tier_id });
+      const rowContainerEl = h({ e: "div", c: "row mx-auto text-center row-container" });
+      const selectEventEl = h({ e: "select", c: "large mx-auto", i: `year-add-event-select-${data.tiers[i].tier_id}`, di: data.tiers[i].tier_id });
       for (let k = 0; k < data.allEvents.length; k++) {
         const optionEl = h({ e: "option", v: data.allEvents[k].id, tx: data.allEvents[k].name });
         selectEventEl.append(optionEl);
       }
       rowContainerEl.append(selectEventEl);
-      const addEventButtonEl = svgEl("plus", "square-button year-add-event-button mx-auto");
-      addEventButtonEl.setAttribute("data-id", data.tiers[i].tier_id);
+      const addEventButtonEl = h({ e: "i", c: "fas fa-plus square-button blue year-add-event-button mx-auto", di: data.tiers[i].tier_id });
       rowContainerEl.append(addEventButtonEl);
       containerEl.append(rowContainerEl);
-      const pDelEl = h({ e: "p", c: "item-title mx-auto", tx: "Delete Tier" });
+      const pDelEl = h({ e: "p", c: "subtitle mx-auto", tx: "Delete This Tier?" });
       containerEl.append(pDelEl);
-      const delTierButtonEl = h({ e: "button", c: "button mx-auto del-btn", dti: data.tiers[i].tier_id, tx: "Delete Tier" });
+      const delTierButtonEl = h({ e: "button", c: "button mx-auto red del-btn", dti: data.tiers[i].tier_id, tx: "Delete" });
       containerEl.append(delTierButtonEl);
       $("#dynamic").append(containerEl);
     }
-  }
-
-  function svgEl(btnType, btnClass) {
-    const obj = {
-      xmlns: "http://www.w3.org/2000/svg",
-      viewBox: "0 0 16 16",
-      fill: "currentColor",
-      fillRule: "evenodd",
-      update: {
-        class: "bi bi-arrow-clockwise",
-        width: "2em",
-        height: "2em",
-        dOne: "M3.17 6.706a5 5 0 0 1 7.103-3.16.5.5 0 1 0 .454-.892A6 6 0 1 0 13.455 5.5a.5.5 0 0 0-.91.417 5 5 0 1 1-9.375.789z",
-        dTwo: "M8.147.146a.5.5 0 0 1 .707 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 1 1-.707-.708L10.293 3 8.147.854a.5.5 0 0 1 0-.708z"
-      },
-      delete: {
-        class: "bi bi-x",
-        width: "2em",
-        height: "2em",
-        dOne: "M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z",
-        dTwo: "M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"
-      },
-      plus: {
-        class: "bi bi-plus",
-        width: "2em",
-        height: "2em",
-        dOne: "M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z",
-        dTwo: "M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"
-      }
-    };
-    const svgElement = document.createElementNS(obj.xmlns, "svg");
-    svgElement.setAttribute("viewBox", obj.viewBox);
-    svgElement.setAttribute("fill", obj.fill);
-    svgElement.setAttribute("width", obj[btnType].width);
-    svgElement.setAttribute("height", obj[btnType].height);
-    svgElement.setAttribute("class", `${obj[btnType].class} ${btnClass}`);
-    const pathOneElement = document.createElementNS(obj.xmlns, "path");
-    pathOneElement.setAttribute("fill-rule", obj.fillRule);
-    pathOneElement.setAttribute("d", obj[btnType].dOne);
-    const pathTwoElement = document.createElementNS(obj.xmlns, "path");
-    pathTwoElement.setAttribute("fill-rule", obj.fillRule);
-    pathTwoElement.setAttribute("d", obj[btnType].dTwo);
-    svgElement.append(pathOneElement);
-    svgElement.append(pathTwoElement);
-    return svgElement;
   }
 
   function h(o) {

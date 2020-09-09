@@ -26,7 +26,7 @@ $(() => {
       });
     }
     $.ajax("/api/score/", { type: "PUT", data: { data: scoreObj } }).then(() => {
-        const messageEl = h({ e: "p", c: "item-title mx-auto", tx: "Success! Scores have been updated!" });
+        const messageEl = h({ e: "p", c: "subtitle mx-auto", tx: "Success! Scores have been updated!" });
         $("#score-container").append(messageEl);
     });
   });
@@ -34,9 +34,11 @@ $(() => {
   function renderCompSelectionMenu() {
     $.get(`/api/comp/year/${parseInt($("#year-select").val())}`, (data) => {
       $("#comp-menu-container").empty();
-      const menuTitleEl = h({ e: "p", c: "item-title mx-auto", tx: "Select a Competitor" });
+      const menuTitleEl = h({ e: "p", c: "subtitle mx-auto", tx: "Select a Competitor" });
       $("#comp-menu-container").append(menuTitleEl);
-      const menuEl = h({ e: "select", i: "comp-select" });
+      const menuTitleLineEl = h({ e: "hr", c: "line large mx-auto" });
+      $("#comp-menu-container").append(menuTitleLineEl);
+      const menuEl = h({ e: "select", i: "comp-select", c: "full mx-auto" });
       for (let i = 0; i < data.length; i++) {
         const optionEl = h({ e: "option", v: data[i].id, tx: data[i].text });
         menuEl.append(optionEl);
@@ -55,29 +57,31 @@ $(() => {
     const input = `${parseInt($("#comp-select").val())}&${parseInt($("#year-select").val())}`;
     $.get(`/api/score/competitor/${input}`, (data) => {
       for (let i = 0; i < data.length; i++) {
-        const sectionEl = h({ e: "div", c: "section-container mx-auto text-center" });
-        const pTitleEl = h({ e: "p", c: "mini-title mx-auto", tx: data[i].name });
+        const sectionEl = h({ e: "div", c: "container mx-auto text-center" });
+        const pTitleEl = h({ e: "p", c: "subtitle mx-auto", tx: data[i].name });
         sectionEl.append(pTitleEl);
+        const lineEl = h({ e: "hr", c: "line large mx-auto"});
+        sectionEl.append(lineEl);
         const div1El = h({ e: "div", c: "row mx-auto" });
-        const pScoreEl = h({ e: "p", c: "item-title score-title mx-auto", tx: "Score" });
+        const pScoreEl = h({ e: "p", c: "text small mx-auto", tx: "Score" });
         div1El.append(pScoreEl);
-        const pMinEl = h({ e: "p", c: "item-title score-title mx-auto", tx: "Minutes" });
+        const pMinEl = h({ e: "p", c: "text small mx-auto", tx: "Minutes" });
         div1El.append(pMinEl);
-        const pSecEl = h({ e: "p", c: "item-title score-title mx-auto", tx: "Seconds" });
+        const pSecEl = h({ e: "p", c: "text small mx-auto", tx: "Seconds" });
         div1El.append(pSecEl);
         sectionEl.append(div1El);
         const div2El = h({ e: "div", c: "row mx-auto" });
-        const inputScoreEl = h({ e: "input", i: `score-input-${i}`, c: "score-input mx-auto", ty: "number", ri: data[i].id, v: data[i].score });
+        const inputScoreEl = h({ e: "input", i: `score-input-${i}`, c: "small mx-auto text-center", ty: "number", ri: data[i].id, v: data[i].score });
         div2El.append(inputScoreEl);
-        const inputMinEl = h({ e: "input", i: `minutes-input-${i}`, c: "score-input mx-auto", ty: "number", ri: data[i].id, v: data[i].time_minutes });
+        const inputMinEl = h({ e: "input", i: `minutes-input-${i}`, c: "small mx-auto text-center", ty: "number", ri: data[i].id, v: data[i].time_minutes });
         div2El.append(inputMinEl);
-        const inputSecEl = h({ e: "input", i: `seconds-input-${i}`, c: "score-input mx-auto", ty: "number", ri: data[i].id, v: data[i].time_seconds });
+        const inputSecEl = h({ e: "input", i: `seconds-input-${i}`, c: "small mx-auto text-center", ty: "number", ri: data[i].id, v: data[i].time_seconds });
         div2El.append(inputSecEl);
         sectionEl.append(div2El);
         $("#score-container").append(sectionEl);
       }
-      const sectionEl = h({ e: "div", c: "section-container mx-auto text-center" });
-      const saveButtonEl = h({ e: "button", i: "save-button", c: "button", dte: data.length, tx: "Save Changes" });
+      const sectionEl = h({ e: "div", c: "mx-auto text-center" });
+      const saveButtonEl = h({ e: "button", i: "save-button", c: "button blue mx-auto", dte: data.length, tx: "Update" });
       sectionEl.append(saveButtonEl);
       $("#score-container").append(sectionEl);
     });
