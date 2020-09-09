@@ -1,3 +1,18 @@
+.nav-icon {
+  color: #275937;
+  margin: 25px 15px 15px 15px;
+  font-size: 2.5em;
+  cursor: pointer;
+}
+.nav-icon:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+.nav-icon-title {
+  color: #275937;
+  margin-right: 25px;
+}
+
 /* page width, global font styling, and background */
 .background {
   background-color: #9bb4a5;
