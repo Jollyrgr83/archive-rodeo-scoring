@@ -22,7 +22,7 @@
   "homepage": "https://github.com/Jollyrgr83/rodeo#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "express-handlebars": "^4.0.4",
+    "express-handlebars": "^7.0.7",
     "mysql": "^2.18.1",
     "pdfmake": "^0.1.65"
   }

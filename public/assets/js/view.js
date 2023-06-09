@@ -124,25 +124,25 @@ $(() => {
     }
   }
 
-  function h(o) {
-    const e = $(`<${o.e}>`);
+  function r(o) {
+    const e = document.createElement(o.e);
     if (o.i) {
-      e.attr("id", o.i);
+      e.setAttribute("id", o.i);
     }
     if (o.c) {
-      e.attr("class", o.c);
+      e.setAttribute("class", o.c);
     }
     if (o.ty) {
-      e.attr("type", o.ty);
+      e.setAttribute("type", o.ty);
     }
     if (o.tx) {
-      e.text(o.tx);
+      e.innerText = (o.tx);
     }
     if (o.v) {
-      e.val(o.v);
+      e.value = (o.v);
     }
     if (o.di) {
-      e.attr("data-id", o.di);
+      e.setAttribute("data-id", o.di);
     }
     return e;
   }

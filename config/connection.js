@@ -1,5 +1,5 @@
 const mysql = require("mysql");
-const connObj = { host: "localhost", user: "root", password: "", database: "rodeo" };
+const connObj = { host: "localhost", user: "root", password: "password", database: "RodeoDB" };
 let connection; 
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);  

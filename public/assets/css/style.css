@@ -1,7 +1,7 @@
 .nav-icon {
   color: #275937;
   margin: 25px 15px 15px 15px;
-  font-size: 2.5em;
+  font-size: 24px;
   cursor: pointer;
 }
 .nav-icon:hover {
@@ -11,6 +11,9 @@
 .nav-icon-title {
   color: #275937;
   margin-right: 25px;
+}
+.nav-icon > * {
+  pointer-events: none;
 }
 
 /* page width, global font styling, and background */

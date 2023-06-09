@@ -1,6 +1,13 @@
-$(() => {
-    $(document).on("click", ".button", (event) => {
-        const routes = {
+class Nav {
+    rts;
+    els;
+    constructor() {
+        this.setRoutes();
+        this.getEls();
+        this.events();
+    }
+    setRoutes() {
+        this.rts = {
             home: "/",
             view: "/view",
             year: "/year",
@@ -8,21 +15,17 @@ $(() => {
             score: "/score",
             reports: "/reports"
         };
-        if (routes[$(event.target).attr("id")]) {
-            window.location.href = routes[$(event.target).attr("id")];
+    }
+    getEls() {
+        this.els = document.getElementsByClassName("nav-icon mx-auto");
+    }
+    events() {
+        for (let i = 0; i < this.els.length; i++) {
+            this.els[i].addEventListener("click", this.click.bind(this));
         }
-    });
-    $(document).on("click", ".nav-icon", (event) => {
-      const routes = {
-          home: "/",
-          view: "/view",
-          year: "/year",
-          comp: "/competitors",
-          score: "/score",
-          reports: "/reports"
-      };
-      if (routes[$(event.target).attr("id")]) {
-          window.location.href = routes[$(event.target).attr("id")];
-      }
-  });
-});
+    }
+    click(e) {
+        window.location.href=this.rts[e.target.id];
+    }
+}
+const N = new Nav();

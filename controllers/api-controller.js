@@ -171,6 +171,9 @@ router.post("/api/year/tier/", (req, res) => {
 });
 // receives data from comp.js and adds new competitor
 router.post("/api/comp/", (req, res) => {
+
+    console.log("req.body", req.body);
+
     model.addCompetitor(req.body, data => res.json(data));
 });
 // generates pdf report on updating score selections
