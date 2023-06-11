@@ -153,7 +153,6 @@ class View {
         ty: "text",
         v: o.data[i].name
       });
-      // TODO - add svg to replace i elements
       const updateButtonEl = this.r({e: "div", c: "square-button blue mx-auto", i: `${o.data[i].id}`, type: "update"});
       const deleteButtonEl = this.r({e: "div", c: "square-button red del-btn mx-auto", i: `${o.data[i].id}`, type: "delete"});
       const rowEl = this.r({e: "div", c: "row mx-auto text-center row-container"});
